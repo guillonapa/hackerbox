@@ -7531,6 +7531,7 @@ function getStory(id, base) {
 function updateTitle(id, title, url) {
   document.getElementById(id).innerHTML = title;
   document.getElementById('link-' + id).href = url;
+
   let temp = url;
   if (temp == null) {
     document.getElementById('site-' + id).innerHTML = 'No url found...';
@@ -7553,7 +7554,11 @@ class Card extends React.Component {
       React.createElement(
         'div',
         { className: 'card-body' },
-        React.createElement('h5', { className: 'card-title', id: this.props.id }),
+        React.createElement(
+          'h5',
+          { className: 'card-title', id: this.props.id },
+          this.props.id
+        ),
         React.createElement(
           'h6',
           { className: 'card-subtitle mb-2', id: 'site-' + this.props.id },
@@ -45854,7 +45859,9 @@ function stop(id) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Header__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Body__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Footer__ = __webpack_require__(206);
 var React = __webpack_require__(7);
+
 
 
 
@@ -45873,8 +45880,8 @@ class App extends React.Component {
   }
 
   handleClick() {
-    const newColorIndex = (this.state.colorIndex + 1) % numColors;
-    const newColor = colors[newColorIndex];
+    let newColorIndex = (this.state.colorIndex + 1) % numColors;
+    let newColor = colors[newColorIndex];
     this.setState({ color: newColor, colorIndex: newColorIndex });
   }
 
@@ -45883,7 +45890,8 @@ class App extends React.Component {
       'div',
       { style: { background: this.state.color, padding: '30px', height: '100%' } },
       React.createElement(__WEBPACK_IMPORTED_MODULE_0__Header__["a" /* Header */], null),
-      React.createElement(__WEBPACK_IMPORTED_MODULE_1__Body__["a" /* Body */], { onClick: this.handleClick, topStories: this.props.topStories, mostRecent: this.props.mostRecent, base: this.props.base })
+      React.createElement(__WEBPACK_IMPORTED_MODULE_1__Body__["a" /* Body */], { topStories: this.props.topStories, mostRecent: this.props.mostRecent, base: this.props.base }),
+      React.createElement(__WEBPACK_IMPORTED_MODULE_2__Footer__["a" /* Footer */], { onClick: this.handleClick })
     );
   }
 
@@ -45961,17 +45969,15 @@ class Header extends React.Component {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Footer__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__stories_Stories__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stories_MostRecentStories__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__stories_YourSavedStories__ = __webpack_require__(197);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__stories_Stories__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__stories_MostRecentStories__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stories_SavedStories__ = __webpack_require__(196);
 var React = __webpack_require__(7);
 
 
 
 
-
-var dragula = __webpack_require__(198);
+var dragula = __webpack_require__(197);
 
 class Body extends React.Component {
 
@@ -45993,20 +45999,19 @@ class Body extends React.Component {
         React.createElement(
           'div',
           { className: 'col stories-cols', style: { paddingLeft: '0px' } },
-          React.createElement(__WEBPACK_IMPORTED_MODULE_1__stories_Stories__["a" /* Stories */], { title: 'Top Stories', icon: 'far fa-file-alt', id: 'top-stories', data: this.props.topStories, base: this.props.base })
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0__stories_Stories__["a" /* Stories */], { title: 'Top Stories', icon: 'far fa-file-alt', id: 'top-stories', data: this.props.topStories, base: this.props.base })
         ),
         React.createElement(
           'div',
           { className: 'col stories-cols' },
-          React.createElement(__WEBPACK_IMPORTED_MODULE_1__stories_Stories__["a" /* Stories */], { title: 'Most Recent', icon: 'fas fa-stopwatch', id: 'most-recent', data: this.props.mostRecent, base: this.props.base })
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0__stories_Stories__["a" /* Stories */], { title: 'Most Recent', icon: 'fas fa-stopwatch', id: 'most-recent', data: this.props.mostRecent, base: this.props.base })
         ),
         React.createElement(
           'div',
           { className: 'col stories-cols', style: { paddingRight: '0px' } },
-          React.createElement(__WEBPACK_IMPORTED_MODULE_1__stories_Stories__["a" /* Stories */], { title: 'Saved Stories', icon: 'far fa-save', id: 'saved-stories', data: this.props.topStories, base: this.props.base })
+          React.createElement(__WEBPACK_IMPORTED_MODULE_2__stories_SavedStories__["a" /* SavedStories */], { title: 'Saved Stories', icon: 'far fa-save', id: 'saved-stories', data: this.props.topStories, base: this.props.base })
         )
-      ),
-      React.createElement(__WEBPACK_IMPORTED_MODULE_0__Footer__["a" /* Footer */], { onClick: this.props.onClick })
+      )
     );
   }
 
@@ -46019,74 +46024,17 @@ class Body extends React.Component {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var React = __webpack_require__(7);
-
-class Footer extends React.Component {
-
-  render() {
-    return React.createElement(
-      'div',
-      { className: 'row', style: { paddingTop: '15px' } },
-      React.createElement(
-        'div',
-        { className: 'col' },
-        React.createElement(
-          'button',
-          { onClick: this.props.onClick, type: 'button', className: 'btn btn-warning' },
-          React.createElement('i', { className: 'fas fa-paint-brush' }),
-          ' Colorize! \xA0'
-        )
-      ),
-      React.createElement(
-        'div',
-        { className: 'col-md-auto' },
-        React.createElement(
-          'h6',
-          null,
-          '\xA9 Guillermo Narvaez (2017-2018)'
-        )
-      )
-    );
-  }
-
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = Footer;
-
-
-/***/ }),
-/* 195 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Card__ = __webpack_require__(47);
 var React = __webpack_require__(7);
 
 
 const storiesColor = '#E3E3E3';
-var cards;
+var cards = null;
 
 class Stories extends React.Component {
 
   constructor(props) {
     super(props);
-    if (this.props.title === 'Saved Stories') {
-      cards = React.createElement('div', { id: this.props.id, dataSpy: 'scroll', dataTarget: '#list-example', dataOffset: '0', className: 'scrollspy-example', style: { minHeight: '60vh', background: storiesColor } });
-    } else {
-      cards = React.createElement(
-        'div',
-        { id: this.props.id, dataSpy: 'scroll', dataTarget: '#list-example', dataOffset: '0', className: 'scrollspy-example', style: { minHeight: '60vh', background: storiesColor } },
-        React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[0], base: this.props.base }),
-        React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[1], base: this.props.base }),
-        React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[2], base: this.props.base }),
-        React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[3], base: this.props.base }),
-        React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[4], base: this.props.base }),
-        React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[5], base: this.props.base }),
-        React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[6], base: this.props.base }),
-        React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[7], base: this.props.base }),
-        React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[8], base: this.props.base }),
-        React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[9], base: this.props.base })
-      );
-    }
   }
 
   render() {
@@ -46108,7 +46056,20 @@ class Stories extends React.Component {
         'div',
         { className: 'card-body', style: { position: 'relative', height: '64vh', overflowY: 'scroll', background: storiesColor } },
         React.createElement('div', { id: 'list-example', className: 'list-group' }),
-        cards
+        React.createElement(
+          'div',
+          { id: this.props.id, dataSpy: 'scroll', dataTarget: '#list-example', dataOffset: '0', className: 'scrollspy-example', style: { minHeight: '60vh', background: storiesColor } },
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[0], base: this.props.base }),
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[1], base: this.props.base }),
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[2], base: this.props.base }),
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[3], base: this.props.base }),
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[4], base: this.props.base }),
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[5], base: this.props.base }),
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[6], base: this.props.base }),
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[7], base: this.props.base }),
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[8], base: this.props.base }),
+          React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[9], base: this.props.base })
+        )
       )
     );
   }
@@ -46117,7 +46078,7 @@ class Stories extends React.Component {
 
 
 /***/ }),
-/* 196 */
+/* 195 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46160,7 +46121,7 @@ class MostRecentStories extends React.Component {
 
 
 /***/ }),
-/* 197 */
+/* 196 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46168,7 +46129,14 @@ class MostRecentStories extends React.Component {
 var React = __webpack_require__(7);
 
 
-class YourSavedStories extends React.Component {
+const storiesColor = '#E3E3E3';
+var cards = null;
+
+class SavedStories extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return React.createElement(
@@ -46176,39 +46144,35 @@ class YourSavedStories extends React.Component {
       { className: 'card' },
       React.createElement(
         'div',
-        { style: { paddingLeft: '15px', paddingTop: '15px' } },
+        { style: { paddingLeft: '20px', paddingTop: '15px', paddingBottom: '15px', background: storiesColor } },
         React.createElement(
           'h3',
           null,
-          'Your Saved Stories'
+          React.createElement('i', { className: this.props.icon }),
+          '\xA0\xA0 ',
+          this.props.title
         )
       ),
       React.createElement(
         'div',
-        { className: 'card-body', style: { position: 'relative', height: '64vh', overflowY: 'scroll' } },
+        { className: 'card-body', style: { position: 'relative', height: '64vh', overflowY: 'scroll', background: storiesColor } },
         React.createElement('div', { id: 'list-example', className: 'list-group' }),
-        React.createElement(
-          'div',
-          { dataSpy: 'scroll', dataTarget: '#list-example', dataOffset: '0', className: 'scrollspy-example' },
-          React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], null),
-          React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], null)
-        )
+        React.createElement('div', { id: this.props.id, dataSpy: 'scroll', dataTarget: '#list-example', dataOffset: '0', className: 'scrollspy-example', style: { minHeight: '60vh', background: storiesColor } })
       )
     );
   }
-
 }
-/* unused harmony export YourSavedStories */
+/* harmony export (immutable) */ __webpack_exports__["a"] = SavedStories;
 
 
 /***/ }),
-/* 198 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var dragula = __webpack_require__(199);
+var dragula = __webpack_require__(198);
 var atoa = __webpack_require__(96);
 
 function reactDragula () {
@@ -46228,15 +46192,15 @@ module.exports = reactDragula;
 
 
 /***/ }),
-/* 199 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var emitter = __webpack_require__(200);
-var crossvent = __webpack_require__(203);
-var classes = __webpack_require__(206);
+var emitter = __webpack_require__(199);
+var crossvent = __webpack_require__(202);
+var classes = __webpack_require__(205);
 var doc = document;
 var documentElement = doc.documentElement;
 
@@ -46844,14 +46808,14 @@ module.exports = dragula;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 200 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var atoa = __webpack_require__(96);
-var debounce = __webpack_require__(201);
+var debounce = __webpack_require__(200);
 
 module.exports = function emitter (thing, options) {
   var opts = options || {};
@@ -46905,13 +46869,13 @@ module.exports = function emitter (thing, options) {
 
 
 /***/ }),
-/* 201 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var ticky = __webpack_require__(202);
+var ticky = __webpack_require__(201);
 
 module.exports = function debounce (fn, args, ctx) {
   if (!fn) { return; }
@@ -46922,7 +46886,7 @@ module.exports = function debounce (fn, args, ctx) {
 
 
 /***/ }),
-/* 202 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(setImmediate) {var si = typeof setImmediate === 'function', tick;
@@ -46936,14 +46900,14 @@ module.exports = tick;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(57).setImmediate))
 
 /***/ }),
-/* 203 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {
 
-var customEvent = __webpack_require__(204);
-var eventmap = __webpack_require__(205);
+var customEvent = __webpack_require__(203);
+var eventmap = __webpack_require__(204);
 var doc = global.document;
 var addEvent = addEventEasy;
 var removeEvent = removeEventEasy;
@@ -47045,7 +47009,7 @@ function find (el, type, fn) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 204 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {
@@ -47100,7 +47064,7 @@ function CustomEvent (type, params) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 205 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47121,7 +47085,7 @@ module.exports = eventmap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
-/* 206 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47158,6 +47122,45 @@ module.exports = {
   add: addClass,
   rm: rmClass
 };
+
+
+/***/ }),
+/* 206 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var React = __webpack_require__(7);
+
+class Footer extends React.Component {
+
+  render() {
+    return React.createElement(
+      'div',
+      { className: 'row', style: { paddingTop: '15px' } },
+      React.createElement(
+        'div',
+        { className: 'col' },
+        React.createElement(
+          'button',
+          { onClick: this.props.onClick, type: 'button', className: 'btn btn-warning' },
+          React.createElement('i', { className: 'fas fa-paint-brush' }),
+          ' Colorize! \xA0'
+        )
+      ),
+      React.createElement(
+        'div',
+        { className: 'col-md-auto' },
+        React.createElement(
+          'h6',
+          null,
+          '\xA9 Guillermo Narvaez (2017-2018)'
+        )
+      )
+    );
+  }
+
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Footer;
 
 
 /***/ })
