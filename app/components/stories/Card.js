@@ -14,6 +14,7 @@ function getStory(id, base) {
 function updateTitle(id, title, url) {
   document.getElementById(id).innerHTML = title;
   document.getElementById('link-'+id).href = url;
+
   let temp = url;
   if(temp == null) {
     document.getElementById('site-'+id).innerHTML = 'No url found...';
@@ -34,7 +35,7 @@ export class Card extends React.Component {
     return (
       <div className="card bg-light mb-3 article-card">
         <div className="card-body">
-          <h5 className="card-title" id={this.props.id} ></h5>
+          <h5 className="card-title" id={this.props.id} >{this.props.id}</h5>
           <h6 className="card-subtitle mb-2" id={'site-'+this.props.id}>{this.props.subtitle}</h6>
           <p className="card-text"><a href="https://www.google.com/" id={'link-'+this.props.id}>Read article</a></p>
         </div>

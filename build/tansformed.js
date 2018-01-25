@@ -2778,22 +2778,22 @@ var OperationSource = /** @class */ (function () {
      * @type {!OperationSource}
      */
     OperationSource.User = new OperationSource(
-    /*fromUser=*/ true, false, null,
+    /*fromUser=*/ true, false, null, 
     /*tagged=*/ false);
     /**
      * @const
      * @type {!OperationSource}
      */
-    OperationSource.Server = new OperationSource(false,
-    /*fromServer=*/ true, null,
+    OperationSource.Server = new OperationSource(false, 
+    /*fromServer=*/ true, null, 
     /*tagged=*/ false);
     /**
      * @param {string} queryId
      * @return {!OperationSource}
      */
     OperationSource.forServerTaggedQuery = function (queryId) {
-        return new OperationSource(false,
-        /*fromServer=*/ true, queryId,
+        return new OperationSource(false, 
+        /*fromServer=*/ true, queryId, 
         /*tagged=*/ true);
     };
     return OperationSource;
@@ -2864,7 +2864,7 @@ function reject(error) {
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- *
+ * 
  */
 
 function makeEmptyFunction(arg) {
@@ -5986,7 +5986,7 @@ var Reference = /** @class */ (function (_super) {
         validation_1.validateFirebaseDataArg('Reference.set', 1, newVal, this.path, false);
         util_2.validateCallback('Reference.set', 2, onComplete, true);
         var deferred = new util_3.Deferred();
-        this.repo.setWithPriority(this.path, newVal,
+        this.repo.setWithPriority(this.path, newVal, 
         /*priority=*/ null, deferred.wrapCallback(onComplete));
         return deferred.promise;
     };
@@ -7863,7 +7863,7 @@ module.exports = getActiveElement;
  * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
- *
+ * 
  */
 
 /*eslint-disable no-self-compare */
@@ -7935,7 +7935,7 @@ module.exports = shallowEqual;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- *
+ * 
  */
 
 var isTextNode = __webpack_require__(102);
@@ -9387,7 +9387,7 @@ var Query = /** @class */ (function () {
                 deferred.resolve(snapshot);
             }
         };
-        this.on(eventType, onceCallback,
+        this.on(eventType, onceCallback, 
         /*cancel=*/ function (err) {
             _this.off(eventType, onceCallback);
             if (ret.cancel)
@@ -11079,10 +11079,10 @@ var ViewCache = /** @class */ (function () {
      * @const
      * @type {ViewCache}
      */
-    ViewCache.Empty = new ViewCache(new CacheNode_1.CacheNode(ChildrenNode_1.ChildrenNode.EMPTY_NODE,
-    /*fullyInitialized=*/ false,
-    /*filtered=*/ false), new CacheNode_1.CacheNode(ChildrenNode_1.ChildrenNode.EMPTY_NODE,
-    /*fullyInitialized=*/ false,
+    ViewCache.Empty = new ViewCache(new CacheNode_1.CacheNode(ChildrenNode_1.ChildrenNode.EMPTY_NODE, 
+    /*fullyInitialized=*/ false, 
+    /*filtered=*/ false), new CacheNode_1.CacheNode(ChildrenNode_1.ChildrenNode.EMPTY_NODE, 
+    /*fullyInitialized=*/ false, 
     /*filtered=*/ false));
     return ViewCache;
 }());
@@ -11605,10 +11605,10 @@ var PersistentConnection = /** @class */ (function (_super) {
     PersistentConnection.prototype.onDataPush_ = function (action, body) {
         this.log_('handleServerMessage', action, body);
         if (action === 'd')
-            this.onDataUpdate_(body['p'], body['d'],
+            this.onDataUpdate_(body['p'], body['d'], 
             /*isMerge*/ false, body['t']);
         else if (action === 'm')
-            this.onDataUpdate_(body['p'], body['d'],
+            this.onDataUpdate_(body['p'], body['d'], 
             /*isMerge=*/ true, body['t']);
         else if (action === 'c')
             this.onListenRevoked_(body['p'], body['q']);
@@ -11749,7 +11749,7 @@ var PersistentConnection = /** @class */ (function (_super) {
                 if (!canceled_1) {
                     util_4.log('getToken() completed. Creating connection.');
                     self_1.authToken_ = result && result.accessToken;
-                    connection_1 = new Connection_1.Connection(connId_1, self_1.repoInfo_, onDataMessage_1, onReady_1, onDisconnect_1,
+                    connection_1 = new Connection_1.Connection(connId_1, self_1.repoInfo_, onDataMessage_1, onReady_1, onDisconnect_1, 
                     /* onKill= */ function (reason) {
                         util_4.warn(reason + ' (' + self_1.repoInfo_.toString() + ')');
                         self_1.interrupt(SERVER_KILL_INTERRUPT_REASON);
@@ -22332,7 +22332,7 @@ var AsyncUpdates = 1;
   try {
     var nonExtensibleObject = Object.preventExtensions({});
     /* eslint-disable no-new */
-
+    
     /* eslint-enable no-new */
   } catch (e) {
     // TODO: Consider warning about bad polyfills
@@ -28462,7 +28462,7 @@ function setValueForProperty(node, name, value) {
   }
 
   {
-
+    
   }
 }
 
@@ -28477,7 +28477,7 @@ function setValueForAttribute(node, name, value) {
   }
 
   {
-
+    
   }
 }
 
@@ -33892,7 +33892,7 @@ if (typeof Promise === 'undefined') {
   var setTimeoutFunc = setTimeout;
 
   function noop() {}
-
+  
   // Polyfill for Function.prototype.bind
   function bind(fn, thisArg) {
     return function () {
@@ -34110,7 +34110,7 @@ if (typeof Promise === 'undefined') {
   Promise._setUnhandledRejectionFn = function _setUnhandledRejectionFn(fn) {
     Promise._unhandledRejectionFn = fn;
   };
-
+  
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = Promise;
   } else if (!root.Promise) {
@@ -36523,7 +36523,7 @@ var ServerValue = Database_1.Database.ServerValue;
 exports.ServerValue = ServerValue;
 function registerDatabase(instance) {
     // Register the Database Service with the 'firebase' namespace.
-    var namespace = instance.INTERNAL.registerService('database', function (app, unused, url) { return RepoManager_1.RepoManager.getInstance().databaseFromApp(app, url); },
+    var namespace = instance.INTERNAL.registerService('database', function (app, unused, url) { return RepoManager_1.RepoManager.getInstance().databaseFromApp(app, url); }, 
     // firebase.database namespace properties
     {
         Reference: Reference_1.Reference,
@@ -37713,7 +37713,7 @@ var SyncTree = /** @class */ (function () {
                     // If a listen failed, kill all of the listeners here, not just the one that triggered the error.
                     // Note that this may need to be scoped to just this listener if we change permissions on filtered children
                     var error = util_2.errorForServerCode(status, query);
-                    return _this.removeEventRegistration(query,
+                    return _this.removeEventRegistration(query, 
                     /*eventRegistration*/ null, error);
                 }
             }
@@ -37781,7 +37781,7 @@ var SyncTree = /** @class */ (function () {
         var syncPoint = this.syncPointTree_.get(queryPath);
         util_1.assert(syncPoint, "Missing sync point for query tag that we're tracking");
         var writesCache = this.pendingWriteTree_.childWrites(queryPath);
-        return syncPoint.applyOperation(operation, writesCache,
+        return syncPoint.applyOperation(operation, writesCache, 
         /*serverCache=*/ null);
     };
     /**
@@ -37789,12 +37789,12 @@ var SyncTree = /** @class */ (function () {
      *
      * NOTES:
      * - Descendant SyncPoints will be visited first (since we raise events depth-first).
-
+  
      * - We call applyOperation() on each SyncPoint passing three things:
      *   1. A version of the Operation that has been made relative to the SyncPoint location.
      *   2. A WriteTreeRef of any writes we have cached at the SyncPoint location.
      *   3. A snapshot Node with cached server data, if we have it.
-
+  
      * - We concatenate all of the events returned by each SyncPoint and return the result.
      *
      * @param {!Operation} operation
@@ -37802,7 +37802,7 @@ var SyncTree = /** @class */ (function () {
      * @private
      */
     SyncTree.prototype.applyOperationToSyncPoints_ = function (operation) {
-        return this.applyOperationHelper_(operation, this.syncPointTree_,
+        return this.applyOperationHelper_(operation, this.syncPointTree_, 
         /*serverCache=*/ null, this.pendingWriteTree_.childWrites(Path_1.Path.Empty));
     };
     /**
@@ -37921,8 +37921,8 @@ var AckUserWrite = /** @class */ (function () {
      * @param {!boolean} revert
      */
     function AckUserWrite(
-        /**@inheritDoc */ path,
-        /**@inheritDoc */ affectedTree,
+        /**@inheritDoc */ path, 
+        /**@inheritDoc */ affectedTree, 
         /**@inheritDoc */ revert) {
         this.path = path;
         this.affectedTree = affectedTree;
@@ -38044,8 +38044,8 @@ var util_1 = __webpack_require__(0);
  */
 var Merge = /** @class */ (function () {
     function Merge(
-        /**@inheritDoc */ source,
-        /**@inheritDoc */ path,
+        /**@inheritDoc */ source, 
+        /**@inheritDoc */ path, 
         /**@inheritDoc */ children) {
         this.source = source;
         this.path = path;
@@ -40195,7 +40195,7 @@ var AuthTokenProvider = /** @class */ (function () {
      * @return {!Promise<FirebaseAuthTokenData>}
      */
     AuthTokenProvider.prototype.getToken = function (forceRefresh) {
-        return this.app_['INTERNAL']['getToken'](forceRefresh).then(null,
+        return this.app_['INTERNAL']['getToken'](forceRefresh).then(null, 
         // .catch
         function (error) {
             // TODO: Need to figure out all the cases this is raised and whether
@@ -44017,7 +44017,7 @@ function registerStorage(instance) {
         Storage: __WEBPACK_IMPORTED_MODULE_5__src_service__["a" /* Service */],
         Reference: __WEBPACK_IMPORTED_MODULE_4__src_reference__["a" /* Reference */]
     };
-    instance.INTERNAL.registerService(STORAGE_TYPE, factory, namespaceExports, undefined,
+    instance.INTERNAL.registerService(STORAGE_TYPE, factory, namespaceExports, undefined, 
     // Allow multiple storage instances per app.
     true);
 }
@@ -44338,7 +44338,7 @@ function sliceBlob(blob, start, end) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RequestInfo; });
 var RequestInfo = /** @class */ (function () {
-    function RequestInfo(url, method,
+    function RequestInfo(url, method, 
         /**
          * Returns the value with which to resolve the request's promise. Only called
          * if the request is successful. Throw from this function to reject the
