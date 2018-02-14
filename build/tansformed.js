@@ -7553,7 +7553,7 @@ class Card extends React.Component {
       { className: 'card bg-light mb-3 article-card' },
       React.createElement(
         'div',
-        { className: 'card-body' },
+        { className: 'card-body', style: { boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" } },
         React.createElement(
           'h5',
           { className: 'card-title', id: this.props.id },
@@ -46040,7 +46040,7 @@ class Stories extends React.Component {
   render() {
     return React.createElement(
       'div',
-      { className: 'card' },
+      { className: 'card', style: { boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" } },
       React.createElement(
         'div',
         { style: { paddingLeft: '20px', paddingTop: '15px', paddingBottom: '15px', background: storiesColor } },
@@ -46141,7 +46141,7 @@ class SavedStories extends React.Component {
   render() {
     return React.createElement(
       'div',
-      { className: 'card' },
+      { className: 'card', style: { boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" } },
       React.createElement(
         'div',
         { style: { paddingLeft: '20px', paddingTop: '15px', paddingBottom: '15px', background: storiesColor } },
