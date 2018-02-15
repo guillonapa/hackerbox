@@ -45942,7 +45942,7 @@ class Header extends React.Component {
         'div',
         { className: 'col-md-auto' },
         React.createElement(
-          'h1',
+          'h3',
           null,
           React.createElement(
             'span',
