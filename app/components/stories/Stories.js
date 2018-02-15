@@ -16,7 +16,7 @@ export class Stories extends React.Component {
         <div style={{paddingLeft: '20px', paddingTop: '15px', paddingBottom: '15px', background: storiesColor}}><h3><i className={this.props.icon}></i>&nbsp;&nbsp; {this.props.title}</h3></div>
         <div className="card-body" style={{position: 'relative', height: '64vh', overflowY: 'scroll', background: storiesColor}}>
           <div id="list-example" className="list-group"></div>
-          <div id={this.props.id} dataSpy="scroll" dataTarget="#list-example" dataOffset="0" className="scrollspy-example" style={{minHeight: '60vh', background: storiesColor}}>
+          <div id={this.props.id} dataSpy="scroll" dataTarget="#list-example" dataOffset="0" className="scrollspy-example" style={{height: '60vh', background: storiesColor}}>
           <Card title="" subtitle="" description="" id={this.props.data[0]} base={this.props.base} />
           <Card title="" subtitle="" description="" id={this.props.data[1]} base={this.props.base} />
           <Card title="" subtitle="" description="" id={this.props.data[2]} base={this.props.base} />

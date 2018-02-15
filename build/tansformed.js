@@ -7569,7 +7569,7 @@ class Card extends React.Component {
           { className: 'card-text' },
           React.createElement(
             'a',
-            { href: 'https://www.google.com/', id: 'link-' + this.props.id },
+            { href: 'https://www.google.com/', id: 'link-' + this.props.id, target: '_blank' },
             'Read article'
           )
         )
@@ -45913,6 +45913,14 @@ class Header extends React.Component {
     window.open('https://github.com/guillonapa/react-ion', '_blank');
   }
 
+  handleQuestionClick() {
+    window.alert('We are still working on the site... for now, you can drag cards around and you can see the latest and top stories as featured in Hacker News!');
+  }
+
+  handleMenuClick() {
+    window.alert('Sorry... we are not quite there yet!');
+  }
+
   render() {
     return React.createElement(
       'div',
@@ -45946,13 +45954,13 @@ class Header extends React.Component {
           null,
           React.createElement(
             'span',
-            { className: 'title' },
+            { className: 'title', onClick: this.handleQuestionClick },
             React.createElement('i', { className: 'far fa-question-circle' })
           ),
           '\xA0\xA0',
           React.createElement(
             'span',
-            { className: 'title' },
+            { className: 'title', onClick: this.handleMenuClick },
             React.createElement('i', { className: 'fas fa-bars' })
           )
         )
@@ -46058,7 +46066,7 @@ class Stories extends React.Component {
         React.createElement('div', { id: 'list-example', className: 'list-group' }),
         React.createElement(
           'div',
-          { id: this.props.id, dataSpy: 'scroll', dataTarget: '#list-example', dataOffset: '0', className: 'scrollspy-example', style: { minHeight: '60vh', background: storiesColor } },
+          { id: this.props.id, dataSpy: 'scroll', dataTarget: '#list-example', dataOffset: '0', className: 'scrollspy-example', style: { height: '60vh', background: storiesColor } },
           React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[0], base: this.props.base }),
           React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[1], base: this.props.base }),
           React.createElement(__WEBPACK_IMPORTED_MODULE_0__Card__["a" /* Card */], { title: '', subtitle: '', description: '', id: this.props.data[2], base: this.props.base }),

@@ -4,7 +4,7 @@ export class Footer extends React.Component {
 
   render() {
     return (
-      <div className="row" style={{paddingTop: '15px'}}>
+      <div className="row" style={{paddingTop: '15px', height: '8vh'}}>
         <div className="col">
           <button onClick={this.props.onClick} type="button" className="btn btn-warning"><i className="fas fa-paint-brush"></i> Colorize! &nbsp;</button>
         </div>
