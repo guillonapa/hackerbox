@@ -45888,7 +45888,7 @@ class App extends React.Component {
   render() {
     return React.createElement(
       'div',
-      { style: { background: this.state.color, padding: '30px', height: '100%' } },
+      { style: { background: 'linear-gradient(to bottom right, #05545B, ' + this.state.color + ')', padding: '30px', height: '105vh' } },
       React.createElement(__WEBPACK_IMPORTED_MODULE_0__Header__["a" /* Header */], null),
       React.createElement(__WEBPACK_IMPORTED_MODULE_1__Body__["a" /* Body */], { topStories: this.props.topStories, mostRecent: this.props.mostRecent, base: this.props.base }),
       React.createElement(__WEBPACK_IMPORTED_MODULE_2__Footer__["a" /* Footer */], { onClick: this.handleClick })
@@ -45914,7 +45914,8 @@ class Header extends React.Component {
   }
 
   handleQuestionClick() {
-    window.alert('We are still working on the site... for now, you can drag cards around and you can see the latest and top stories as featured in Hacker News!');
+    // window.alert('We are still working on the site... for now, you can drag cards around and you can see the latest and top stories as featured in Hacker News!');
+    $('#exampleModalCenter').modal('toggle');
   }
 
   handleMenuClick() {
@@ -45924,7 +45925,7 @@ class Header extends React.Component {
   render() {
     return React.createElement(
       'div',
-      { className: 'row' },
+      { className: 'row', style: { height: '8vh' } },
       React.createElement(
         'div',
         { className: 'col' },
@@ -46165,7 +46166,7 @@ class SavedStories extends React.Component {
         'div',
         { className: 'card-body', style: { position: 'relative', height: '64vh', overflowY: 'scroll', background: storiesColor } },
         React.createElement('div', { id: 'list-example', className: 'list-group' }),
-        React.createElement('div', { id: this.props.id, dataSpy: 'scroll', dataTarget: '#list-example', dataOffset: '0', className: 'scrollspy-example', style: { minHeight: '60vh', background: storiesColor } })
+        React.createElement('div', { id: this.props.id, dataSpy: 'scroll', dataTarget: '#list-example', dataOffset: '0', className: 'scrollspy-example', style: { height: '60vh', background: storiesColor } })
       )
     );
   }
@@ -47144,7 +47145,7 @@ class Footer extends React.Component {
   render() {
     return React.createElement(
       'div',
-      { className: 'row', style: { paddingTop: '15px' } },
+      { className: 'row', style: { paddingTop: '15px', height: '8vh' } },
       React.createElement(
         'div',
         { className: 'col' },
