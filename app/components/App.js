@@ -26,7 +26,7 @@ export class App extends React.Component {
   render() {
     return (
       <div style={{background: 'linear-gradient(to bottom right, #05545B, ' + this.state.color + ')' , padding: '30px', height: '105vh' }}>
-        <Header />
+        <Header onClick={this.handleClick} />
         <Body topStories={this.props.topStories} mostRecent={this.props.mostRecent} base={this.props.base} />
         <Footer onClick={this.handleClick} />
       </div>

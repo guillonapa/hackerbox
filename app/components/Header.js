@@ -28,7 +28,7 @@ export class Header extends React.Component {
           <h1><span className="title" onClick={this.handleClick}>Hacker <i className="fas fa-chevron-right"></i> <span id="secondary-title">React <i className="fab fa-react" style={{color: '#E10000'}} id="react-logo" ></i></span></span></h1>
         </div>
         <div className="col-md-auto">
-          <h3><span className="title" onClick={this.handleQuestionClick}><i className="far fa-question-circle"></i></span>&nbsp;&nbsp;<span className="title" onClick={this.handleMenuClick}><i className="fas fa-bars"></i></span></h3>
+          <h3><span className="title" onClick={this.props.onClick}><i className="fas fa-edit"></i></span>&nbsp;&nbsp;<span className="title" onClick={this.handleQuestionClick}><i className="far fa-question-circle"></i></span>&nbsp;&nbsp;<span className="title" onClick={this.handleMenuClick}><i className="fas fa-bars"></i></span></h3>
         </div>
       </div>
     );
