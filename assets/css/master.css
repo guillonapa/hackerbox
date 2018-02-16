@@ -21,6 +21,11 @@ body {
   cursor: move;
 }
 
+.menu-subtitle:hover {
+  color: rgb(113, 113, 113);
+  cursor: pointer;
+}
+
 #react-logo {
   -webkit-animation: myRotation 4s 1s infinite linear normal;
   -webkit-transform-origin: center center;

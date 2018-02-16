@@ -45919,7 +45919,12 @@ class Header extends React.Component {
   }
 
   handleMenuClick() {
-    window.alert('Sorry... we are not quite there yet!');
+    var elem = document.getElementById('menu');
+    if (elem.style.display === 'none') {
+      elem.style.display = 'block';
+    } else {
+      elem.style.display = 'none';
+    }
   }
 
   render() {
