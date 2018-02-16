@@ -1112,7 +1112,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var Index_1 = __webpack_require__(26);
 var util_1 = __webpack_require__(1);
-var Node_1 = __webpack_require__(5);
+var Node_1 = __webpack_require__(6);
 var LeafNode_1 = __webpack_require__(27);
 var nodeFromJSON;
 var MAX_NODE;
@@ -1230,7 +1230,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var util_1 = __webpack_require__(0);
 var util_2 = __webpack_require__(1);
 var SortedMap_1 = __webpack_require__(28);
-var Node_1 = __webpack_require__(5);
+var Node_1 = __webpack_require__(6);
 var snap_1 = __webpack_require__(67);
 var PriorityIndex_1 = __webpack_require__(3);
 var KeyIndex_1 = __webpack_require__(18);
@@ -1711,6 +1711,21 @@ PriorityIndex_1.setMaxNode(exports.MAX_NODE);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(98);
+} else {
+  module.exports = __webpack_require__(99);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 /**
  * Copyright 2017 Google Inc.
@@ -1757,7 +1772,7 @@ exports.NamedNode = NamedNode;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1822,21 +1837,6 @@ function isNativeBlobDefined() {
 
 //# sourceMappingURL=type.js.map
 
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(98);
-} else {
-  module.exports = __webpack_require__(99);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8)))
 
 /***/ }),
 /* 8 */
@@ -3073,7 +3073,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var Index_1 = __webpack_require__(26);
-var Node_1 = __webpack_require__(5);
+var Node_1 = __webpack_require__(6);
 var util_1 = __webpack_require__(1);
 var util_2 = __webpack_require__(0);
 var __EMPTY_NODE;
@@ -3174,7 +3174,7 @@ exports.KEY_INDEX = new KeyIndex();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ChildrenNode_1 = __webpack_require__(4);
 var LeafNode_1 = __webpack_require__(27);
-var Node_1 = __webpack_require__(5);
+var Node_1 = __webpack_require__(6);
 var util_1 = __webpack_require__(0);
 var util_2 = __webpack_require__(0);
 var childSet_1 = __webpack_require__(70);
@@ -3781,7 +3781,7 @@ exports.LONG_POLLING = 'long_polling';
  * limitations under the License.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-var Node_1 = __webpack_require__(5);
+var Node_1 = __webpack_require__(6);
 var util_1 = __webpack_require__(1);
 /**
  *
@@ -7069,7 +7069,7 @@ exports.RepoManager = RepoManager;
 /* harmony export (immutable) */ __webpack_exports__["d"] = nullFunctionSpec;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__error__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__metadata__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__type__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__type__ = __webpack_require__(7);
 /**
  * Copyright 2017 Google Inc.
  *
@@ -7224,7 +7224,7 @@ function nullFunctionSpec(opt_optional) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__json__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__location__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__path__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__type__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__type__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__url__ = __webpack_require__(45);
 /**
  * Copyright 2017 Google Inc.
@@ -7515,7 +7515,7 @@ function remove(array, elem) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var React = __webpack_require__(7);
+var React = __webpack_require__(5);
 
 function getStory(id, base) {
   base.fetch('v0/item/' + id, {
@@ -9747,7 +9747,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var Index_1 = __webpack_require__(26);
-var Node_1 = __webpack_require__(5);
+var Node_1 = __webpack_require__(6);
 var util_1 = __webpack_require__(1);
 var nodeFromJSON_1 = __webpack_require__(19);
 /**
@@ -9844,7 +9844,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var util_1 = __webpack_require__(0);
 var childSet_1 = __webpack_require__(70);
 var util_2 = __webpack_require__(0);
-var Node_1 = __webpack_require__(5);
+var Node_1 = __webpack_require__(6);
 var PriorityIndex_1 = __webpack_require__(3);
 var KeyIndex_1 = __webpack_require__(18);
 var _defaultIndexMap;
@@ -10215,7 +10215,7 @@ var util_1 = __webpack_require__(0);
 var util_2 = __webpack_require__(1);
 var Index_1 = __webpack_require__(26);
 var ChildrenNode_1 = __webpack_require__(4);
-var Node_1 = __webpack_require__(5);
+var Node_1 = __webpack_require__(6);
 var nodeFromJSON_1 = __webpack_require__(19);
 /**
  * @param {!Path} indexPath
@@ -13647,7 +13647,7 @@ exports.ServerActions = ServerActions;
 Object.defineProperty(exports, "__esModule", { value: true });
 var IndexedFilter_1 = __webpack_require__(40);
 var PriorityIndex_1 = __webpack_require__(3);
-var Node_1 = __webpack_require__(5);
+var Node_1 = __webpack_require__(6);
 var ChildrenNode_1 = __webpack_require__(4);
 /**
  * Filters nodes by range and uses an IndexFilter to track any changes after filtering the node
@@ -14184,7 +14184,7 @@ var ErrorCode;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__implementation_path__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__implementation_requests__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__implementation_string__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__implementation_type__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__implementation_type__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__task__ = __webpack_require__(181);
 /**
  * Copyright 2017 Google Inc.
@@ -14508,7 +14508,7 @@ function lastComponent(path) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FbsBlob; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__fs__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__string__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__type__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__type__ = __webpack_require__(7);
 /**
  * Copyright 2017 Google Inc.
  *
@@ -14667,7 +14667,7 @@ var FbsBlob = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__metadata__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__object__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__requestinfo__ = __webpack_require__(180);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__type__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__type__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__url__ = __webpack_require__(45);
 /**
  * Copyright 2017 Google Inc.
@@ -15016,7 +15016,8 @@ module.exports = function atoa (a, n) { return Array.prototype.slice.call(a, n);
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_components_App_js__ = __webpack_require__(191);
-var React = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_components_Menu_js__ = __webpack_require__(207);
+var React = __webpack_require__(5);
 var ReactDOM = __webpack_require__(49);
 var Rebase = __webpack_require__(109);
 var firebase = __webpack_require__(129);
@@ -15024,6 +15025,7 @@ var app = firebase.initializeApp({
   databaseURL: "https://hacker-news.firebaseio.com/"
 });
 var base = Rebase.createClass(app.database());
+
 
 
 function getTopStories() {
@@ -15049,6 +15051,7 @@ function getMostRecentStories(topStories) {
 }
 
 getTopStories();
+ReactDOM.render(React.createElement(__WEBPACK_IMPORTED_MODULE_1__app_components_Menu_js__["a" /* Menu */], null), document.getElementById('menu'));
 
 /***/ }),
 /* 98 */
@@ -16479,7 +16482,7 @@ module.exports = ReactPropTypesSecret;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(7),l=__webpack_require__(50),B=__webpack_require__(22),C=__webpack_require__(15),ba=__webpack_require__(51),da=__webpack_require__(52),ea=__webpack_require__(53),fa=__webpack_require__(54),ia=__webpack_require__(55),D=__webpack_require__(23);
+var aa=__webpack_require__(5),l=__webpack_require__(50),B=__webpack_require__(22),C=__webpack_require__(15),ba=__webpack_require__(51),da=__webpack_require__(52),ea=__webpack_require__(53),fa=__webpack_require__(54),ia=__webpack_require__(55),D=__webpack_require__(23);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -16776,7 +16779,7 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(7);
+var React = __webpack_require__(5);
 var invariant = __webpack_require__(34);
 var warning = __webpack_require__(35);
 var ExecutionEnvironment = __webpack_require__(50);
@@ -39138,7 +39141,7 @@ exports.WriteTreeCompleteChildSource = WriteTreeCompleteChildSource;
  * limitations under the License.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-var Node_1 = __webpack_require__(5);
+var Node_1 = __webpack_require__(6);
 var Change_1 = __webpack_require__(16);
 var util_1 = __webpack_require__(0);
 /**
@@ -39918,7 +39921,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ImmutableTree_1 = __webpack_require__(39);
 var Path_1 = __webpack_require__(2);
 var util_1 = __webpack_require__(0);
-var Node_1 = __webpack_require__(5);
+var Node_1 = __webpack_require__(6);
 var PriorityIndex_1 = __webpack_require__(3);
 var util_2 = __webpack_require__(0);
 /**
@@ -41582,7 +41585,7 @@ exports.QueryParams = QueryParams;
 Object.defineProperty(exports, "__esModule", { value: true });
 var RangedFilter_1 = __webpack_require__(86);
 var ChildrenNode_1 = __webpack_require__(4);
-var Node_1 = __webpack_require__(5);
+var Node_1 = __webpack_require__(6);
 var util_1 = __webpack_require__(0);
 var Change_1 = __webpack_require__(16);
 /**
@@ -44079,7 +44082,7 @@ var XhrIoPool = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__error__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__object__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__promise_external__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__type__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__type__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__xhrio__ = __webpack_require__(91);
 /**
  * Copyright 2017 Google Inc.
@@ -44223,7 +44226,7 @@ var NetworkXhrIo = /** @class */ (function () {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = jsonObjectOrNull;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__type__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__type__ = __webpack_require__(7);
 /**
  * Copyright 2017 Google Inc.
  *
@@ -44270,7 +44273,7 @@ function jsonObjectOrNull(s) {
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = getBlob;
 /* harmony export (immutable) */ __webpack_exports__["b"] = sliceBlob;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__type__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__type__ = __webpack_require__(7);
 
 function getBlobBuilder() {
     if (typeof BlobBuilder !== 'undefined') {
@@ -44390,7 +44393,7 @@ var RequestInfo = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__implementation_error__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__implementation_promise_external__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__implementation_requests__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__implementation_type__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__implementation_type__ = __webpack_require__(7);
 /**
  * Copyright 2017 Google Inc.
  *
@@ -44961,7 +44964,7 @@ var UploadTask = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Observer; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__type__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__type__ = __webpack_require__(7);
 /**
  * Copyright 2017 Google Inc.
  *
@@ -45264,7 +45267,7 @@ var ServiceInternals = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__location__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__promise_external__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__requestmap__ = __webpack_require__(188);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__type__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__type__ = __webpack_require__(7);
 
 
 
@@ -45501,7 +45504,7 @@ var RequestMap = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__error__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__object__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__promise_external__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__type__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__type__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__url__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__xhrio__ = __webpack_require__(91);
 /**
@@ -45860,7 +45863,7 @@ function stop(id) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Header__ = __webpack_require__(192);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Body__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Footer__ = __webpack_require__(206);
-var React = __webpack_require__(7);
+var React = __webpack_require__(5);
 
 
 
@@ -45889,7 +45892,7 @@ class App extends React.Component {
     return React.createElement(
       'div',
       { style: { background: 'linear-gradient(to bottom right, #05545B, ' + this.state.color + ')', padding: '30px', height: '105vh' } },
-      React.createElement(__WEBPACK_IMPORTED_MODULE_0__Header__["a" /* Header */], null),
+      React.createElement(__WEBPACK_IMPORTED_MODULE_0__Header__["a" /* Header */], { onClick: this.handleClick }),
       React.createElement(__WEBPACK_IMPORTED_MODULE_1__Body__["a" /* Body */], { topStories: this.props.topStories, mostRecent: this.props.mostRecent, base: this.props.base }),
       React.createElement(__WEBPACK_IMPORTED_MODULE_2__Footer__["a" /* Footer */], { onClick: this.handleClick })
     );
@@ -45904,7 +45907,7 @@ class App extends React.Component {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var React = __webpack_require__(7);
+var React = __webpack_require__(5);
 var ReactDOM = __webpack_require__(49);
 
 class Header extends React.Component {
@@ -45960,6 +45963,12 @@ class Header extends React.Component {
           null,
           React.createElement(
             'span',
+            { className: 'title', onClick: this.props.onClick },
+            React.createElement('i', { className: 'fas fa-edit' })
+          ),
+          '\xA0\xA0',
+          React.createElement(
+            'span',
             { className: 'title', onClick: this.handleQuestionClick },
             React.createElement('i', { className: 'far fa-question-circle' })
           ),
@@ -45986,7 +45995,7 @@ class Header extends React.Component {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__stories_Stories__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__stories_MostRecentStories__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__stories_SavedStories__ = __webpack_require__(196);
-var React = __webpack_require__(7);
+var React = __webpack_require__(5);
 
 
 
@@ -46039,7 +46048,7 @@ class Body extends React.Component {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Card__ = __webpack_require__(47);
-var React = __webpack_require__(7);
+var React = __webpack_require__(5);
 
 
 const storiesColor = '#E3E3E3';
@@ -46097,7 +46106,7 @@ class Stories extends React.Component {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Card__ = __webpack_require__(47);
-var React = __webpack_require__(7);
+var React = __webpack_require__(5);
 
 
 class MostRecentStories extends React.Component {
@@ -46140,7 +46149,7 @@ class MostRecentStories extends React.Component {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Card__ = __webpack_require__(47);
-var React = __webpack_require__(7);
+var React = __webpack_require__(5);
 
 
 const storiesColor = '#E3E3E3';
@@ -47143,31 +47152,51 @@ module.exports = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var React = __webpack_require__(7);
+var React = __webpack_require__(5);
 
 class Footer extends React.Component {
+
+  handleGitHub() {
+    window.open('https://github.com/guillonapa', '_blank');
+  }
+
+  handleLinkedIn() {
+    window.open('https://www.linkedin.com/in/g-narvaez', '_blank');
+  }
+
+  handleSite() {
+    window.open('https://guillonapa.github.io/', '_blank');
+  }
 
   render() {
     return React.createElement(
       'div',
       { className: 'row', style: { paddingTop: '15px', height: '8vh' } },
-      React.createElement(
-        'div',
-        { className: 'col' },
-        React.createElement(
-          'button',
-          { onClick: this.props.onClick, type: 'button', className: 'btn btn-warning' },
-          React.createElement('i', { className: 'fas fa-paint-brush' }),
-          ' Colorize! \xA0'
-        )
-      ),
+      React.createElement('div', { className: 'col' }),
       React.createElement(
         'div',
         { className: 'col-md-auto' },
         React.createElement(
           'h6',
           null,
-          '\xA9 Guillermo Narvaez (2017-2018)'
+          '\xA9 Guillermo Narvaez (2017-2018)\xA0\xA0\xA0',
+          React.createElement(
+            'span',
+            { className: 'title', onClick: this.handleGitHub },
+            React.createElement('i', { className: 'fab fa-github' })
+          ),
+          '\xA0\xA0\xA0',
+          React.createElement(
+            'span',
+            { className: 'title', onClick: this.handleLinkedIn },
+            React.createElement('i', { className: 'fab fa-linkedin' })
+          ),
+          '\xA0\xA0\xA0',
+          React.createElement(
+            'span',
+            { className: 'title', onClick: this.handleSite },
+            React.createElement('i', { className: 'fas fa-desktop' })
+          )
         )
       )
     );
@@ -47175,6 +47204,72 @@ class Footer extends React.Component {
 
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Footer;
+
+
+/***/ }),
+/* 207 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var React = __webpack_require__(5);
+
+class Menu extends React.Component {
+
+  handleHomeClick() {
+    window.open('.', '_self');
+  }
+
+  handleProfileClick() {
+    $('#menuPopup').modal('toggle');
+  }
+
+  handleSettingsClick() {
+    $('#menuPopup').modal('toggle');
+  }
+
+  handleSitesClick() {
+    window.open('http://www.ycombinator.com/', '_blank');
+  }
+
+  render() {
+    return React.createElement(
+      'div',
+      { className: 'row', style: { padding: '20px' } },
+      React.createElement(
+        'div',
+        { className: 'col' },
+        React.createElement(
+          'h1',
+          null,
+          'Menu'
+        ),
+        React.createElement('br', null),
+        React.createElement(
+          'h3',
+          { className: 'menu-subtitle', onClick: this.handleHomeClick },
+          'Home'
+        ),
+        React.createElement(
+          'h3',
+          { className: 'menu-subtitle', onClick: this.handleProfileClick },
+          'Profile'
+        ),
+        React.createElement(
+          'h3',
+          { className: 'menu-subtitle', onClick: this.handleSettingsClick },
+          'Settings'
+        ),
+        React.createElement(
+          'h3',
+          { className: 'menu-subtitle', onClick: this.handleSitesClick },
+          'Sites'
+        )
+      )
+    );
+  }
+
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Menu;
 
 
 /***/ })
