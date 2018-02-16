@@ -7,6 +7,7 @@ var app = firebase.initializeApp({
 });
 var base = Rebase.createClass(app.database());
 import { App } from '../app/components/App.js';
+import { Menu } from '../app/components/Menu.js';
 
 function getTopStories(){
   base.fetch('v0/topstories', {
@@ -37,3 +38,7 @@ function getMostRecentStories(topStories){
 
 
 getTopStories();
+ReactDOM.render(
+  <Menu />,
+  document.getElementById('menu')
+);

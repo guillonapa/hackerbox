@@ -9,7 +9,7 @@ export class Header extends React.Component {
 
   handleQuestionClick() {
     // window.alert('We are still working on the site... for now, you can drag cards around and you can see the latest and top stories as featured in Hacker News!');
-    $('#exampleModalCenter').modal('toggle')
+    $('#exampleModalCenter').modal('toggle');
   }
 
   handleMenuClick() {
