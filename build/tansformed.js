@@ -45923,11 +45923,9 @@ class Header extends React.Component {
 
   handleMenuClick() {
     var elem = document.getElementById('menu');
-    if (elem.style.display === 'none') {
-      elem.style.display = 'block';
-    } else {
-      elem.style.display = 'none';
-    }
+    document.getElementById('menu').style.width = "250px";
+    // document.getElementById('main').style.marginRight = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
   }
 
   render() {
@@ -47231,6 +47229,12 @@ class Menu extends React.Component {
     window.open('http://www.ycombinator.com/', '_blank');
   }
 
+  handleCloseMenuClick() {
+    document.getElementById('menu').style.width = "0";
+    // document.getElementById('main').style.marginLeft= "0";
+    document.body.style.backgroundColor = "white";
+  }
+
   render() {
     return React.createElement(
       'div',
@@ -47238,6 +47242,17 @@ class Menu extends React.Component {
       React.createElement(
         'div',
         { className: 'col' },
+        React.createElement(
+          'h2',
+          null,
+          React.createElement(
+            'span',
+            { className: 'title closebtn', onClick: this.handleCloseMenuClick },
+            React.createElement('i', { className: 'far fa-times-circle' })
+          )
+        ),
+        React.createElement('br', null),
+        React.createElement('br', null),
         React.createElement(
           'h1',
           null,

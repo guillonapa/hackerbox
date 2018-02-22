@@ -1,6 +1,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  transition: background-color .5s;
 }
 
 .title {
@@ -25,6 +26,35 @@ body {
   color: rgb(113, 113, 113);
   cursor: pointer;
 }
+
+/* Sidenav begin */
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 0px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+#main {
+    transition: margin-left .5s;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    left: 180px;
+    /* font-size: 36px; */
+    margin-right: 50px;
+}
+
+/* Sidenav end */
 
 #react-logo {
   -webkit-animation: myRotation 4s 1s infinite linear normal;

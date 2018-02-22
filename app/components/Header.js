@@ -14,11 +14,9 @@ export class Header extends React.Component {
 
   handleMenuClick() {
     var elem = document.getElementById('menu');
-    if (elem.style.display === 'none') {
-      elem.style.display = 'block';
-    } else {
-      elem.style.display = 'none';
-    }
+      document.getElementById('menu').style.width = "250px";
+      // document.getElementById('main').style.marginRight = "250px";
+      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";    
   }
 
   render() {
