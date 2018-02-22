@@ -45939,7 +45939,7 @@ class Header extends React.Component {
         { className: 'col' },
         React.createElement(
           'h1',
-          null,
+          { className: 'head-h1' },
           React.createElement(
             'span',
             { className: 'title', onClick: this.handleClick },
