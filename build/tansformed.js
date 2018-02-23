@@ -46019,17 +46019,17 @@ class Body extends React.Component {
         { className: 'row', style: { height: '80vh' } },
         React.createElement(
           'div',
-          { className: 'col stories-cols', style: { paddingLeft: '0px' } },
+          { className: 'col stories-cols', style: { paddingLeft: '0px', paddingRight: '0px' } },
           React.createElement(__WEBPACK_IMPORTED_MODULE_0__stories_Stories__["a" /* Stories */], { title: 'Top Stories', icon: 'far fa-file-alt', id: 'top-stories', data: this.props.topStories, base: this.props.base })
         ),
         React.createElement(
           'div',
-          { className: 'col stories-cols' },
+          { className: 'col stories-cols', style: { paddingLeft: '0px', paddingRight: '0px' } },
           React.createElement(__WEBPACK_IMPORTED_MODULE_0__stories_Stories__["a" /* Stories */], { title: 'Most Recent', icon: 'fas fa-stopwatch', id: 'most-recent', data: this.props.mostRecent, base: this.props.base })
         ),
         React.createElement(
           'div',
-          { className: 'col stories-cols', style: { paddingRight: '0px' } },
+          { className: 'col stories-cols', style: { paddingLeft: '0px', paddingRight: '0px' } },
           React.createElement(__WEBPACK_IMPORTED_MODULE_2__stories_SavedStories__["a" /* SavedStories */], { title: 'Saved Stories', icon: 'far fa-save', id: 'saved-stories', data: this.props.topStories, base: this.props.base })
         )
       )

@@ -20,13 +20,13 @@ export class Body extends React.Component {
     return(
       <div>
         <div className="row" style={{height: '80vh'}}>
-          <div className="col stories-cols" style={{paddingLeft: '0px'}}>
+          <div className="col stories-cols" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
             <Stories title="Top Stories" icon="far fa-file-alt" id="top-stories" data={this.props.topStories} base={this.props.base} />
           </div>
-          <div className="col stories-cols">
+          <div className="col stories-cols" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
             <Stories title="Most Recent" icon="fas fa-stopwatch" id="most-recent" data={this.props.mostRecent} base={this.props.base} />
           </div>
-          <div className="col stories-cols" style={{paddingRight: '0px'}}>
+          <div className="col stories-cols" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
             <SavedStories title="Saved Stories" icon="far fa-save" id="saved-stories" data={this.props.topStories} base={this.props.base} />
           </div>
         </div>
