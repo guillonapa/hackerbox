@@ -21,7 +21,7 @@ export class Footer extends React.Component {
 
         </div>
         <div className="col-md-auto">
-          <h6>&copy; Guillermo Narvaez (2017-2018)&nbsp;&nbsp;&nbsp;<span className="title" onClick={this.handleGitHub}><i className="fab fa-github"></i></span>&nbsp;&nbsp;&nbsp;<span className="title" onClick={this.handleLinkedIn}><i className="fab fa-linkedin"></i></span>&nbsp;&nbsp;&nbsp;<span className="title" onClick={this.handleSite}><i className="fas fa-desktop"></i></span></h6>
+          <h6>&copy; Guillermo Narvaez (2017-2018)&nbsp;&nbsp;&nbsp;<span className="footer-icons" onClick={this.handleGitHub}><i className="fab fa-github"></i></span>&nbsp;&nbsp;&nbsp;<span className="footer-icons" onClick={this.handleLinkedIn}><i className="fab fa-linkedin"></i></span>&nbsp;&nbsp;&nbsp;<span className="footer-icons" onClick={this.handleSite}><i className="fas fa-desktop"></i></span></h6>
         </div>
       </div>
     );

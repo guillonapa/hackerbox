@@ -1,3 +1,11 @@
+.menu-icons {
+  margin: 0px;
+}
+
+.icons-col {
+
+}
+
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -5,12 +13,17 @@ body {
 }
 
 .title {
-  color: rgb(22, 22, 22);
+  color: #ECEFF1;
 }
 
 .title:hover {
-  color: rgb(113, 113, 113);
+  color: #ec7878;
   cursor: pointer;
+}
+
+.article-card:hover {
+  color: #ec7878;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.40);
 }
 
 .stories-cols {
@@ -52,6 +65,28 @@ body {
     left: 180px;
     /* font-size: 36px; */
     margin-right: 50px;
+}
+
+.closebtn {
+  color: rgb(31, 30, 24);
+}
+
+.closebtn:hover {
+  color: #ec7878;
+  cursor: pointer;
+}
+
+.footer-icons {
+  color: rgb(31, 30, 24);
+}
+
+.footer-icons:hover {
+  color: #ec7878;
+  cursor: pointer;
+}
+
+.head-h1 {
+  font-family: 'Permanent Marker', cursive;
 }
 
 /* Sidenav end */

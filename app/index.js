@@ -8,6 +8,7 @@ var app = firebase.initializeApp({
 var base = Rebase.createClass(app.database());
 import { App } from '../app/components/App.js';
 import { Menu } from '../app/components/Menu.js';
+import { Header } from '../app/components/Header.js';
 
 function getTopStories(){
   base.fetch('v0/topstories', {
@@ -41,4 +42,8 @@ getTopStories();
 ReactDOM.render(
   <Menu />,
   document.getElementById('menu')
+);
+ReactDOM.render(
+  <Header />,
+  document.getElementById('header')
 );
