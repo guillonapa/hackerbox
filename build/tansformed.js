@@ -15042,7 +15042,7 @@ class Header extends React.Component {
         'div',
         { className: 'col', style: { paddingLeft: '30px' } },
         React.createElement(
-          'h2',
+          'span',
           { className: 'head-h1' },
           React.createElement(
             'span',
@@ -15058,10 +15058,10 @@ class Header extends React.Component {
       ),
       React.createElement(
         'div',
-        { className: 'col-md-auto icons-col' },
+        { className: 'col icons-col' },
         React.createElement(
-          'h3',
-          { className: 'menu-icons' },
+          'span',
+          { className: 'menu-icons head-h1' },
           React.createElement(
             'span',
             { className: 'title', onClick: this.handleColorClick },

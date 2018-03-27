@@ -29,10 +29,20 @@ export class Header extends React.Component {
     return (
       <div className="row" style={{height: '8vh', paddingTop: '10px', paddingLeft: '10px', paddingRight: '10px' }}>
         <div className="col" style={{ paddingLeft: '30px' }}>
-          <h2 className="head-h1"><span className="title" onClick={this.handleClick}>Hacker*<span id="secondary-title">React </span></span></h2>
+          <span className="head-h1"><span className="title" onClick={this.handleClick}>Hacker*<span id="secondary-title">React </span></span></span>
         </div>
-        <div className="col-md-auto icons-col">
-          <h3 className="menu-icons"><span className="title" onClick={this.handleColorClick}><i className="fas fa-edit"></i></span>&nbsp;&nbsp;<span className="title" onClick={this.handleQuestionClick}><i className="far fa-question-circle"></i></span>&nbsp;&nbsp;<span className="title" onClick={this.handleMenuClick}><i className="fas fa-bars"></i></span></h3>
+        <div className="col icons-col">
+          <span className="menu-icons head-h1">
+            <span className="title" onClick={this.handleColorClick}>
+              <i className="fas fa-edit"></i>
+            </span>&nbsp;&nbsp;
+            <span className="title" onClick={this.handleQuestionClick}>
+              <i className="far fa-question-circle"></i>
+            </span>&nbsp;&nbsp;
+            <span className="title" onClick={this.handleMenuClick}>
+              <i className="fas fa-bars"></i>
+            </span>
+          </span>
         </div>
       </div>
     );

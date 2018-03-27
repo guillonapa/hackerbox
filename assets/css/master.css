@@ -1,5 +1,7 @@
 .menu-icons {
   margin: 0px;
+  position: absolute;
+  right: 1em;
 }
 
 .icons-col {
@@ -87,6 +89,9 @@ body {
 
 .head-h1 {
   font-family: 'Permanent Marker', cursive;
+  font-size: 2em;
+  position: absolute;
+  top: 0.2em;
 }
 
 /* Sidenav end */
