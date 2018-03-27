@@ -15108,7 +15108,7 @@ var base = Rebase.createClass(app.database());
 
 
 function getTopStories() {
-  base.fetch('v0/topstories', {
+  base.fetch("v0/topstories", {
     context: this,
     asArray: true,
     then(data) {
@@ -15119,19 +15119,19 @@ function getTopStories() {
 }
 
 function getMostRecentStories(topStories) {
-  base.fetch('v0/newstories', {
+  base.fetch("v0/newstories", {
     context: this,
     asArray: true,
     then(data) {
       console.log(data);
-      ReactDOM.render(React.createElement(__WEBPACK_IMPORTED_MODULE_0__app_components_App_js__["a" /* App */], { topStories: topStories, mostRecent: data, base: base }), document.getElementById('space'));
+      ReactDOM.render(React.createElement(__WEBPACK_IMPORTED_MODULE_0__app_components_App_js__["a" /* App */], { topStories: topStories, mostRecent: data, base: base }), document.getElementById("space"));
     }
   });
 }
 
 getTopStories();
-ReactDOM.render(React.createElement(__WEBPACK_IMPORTED_MODULE_1__app_components_Menu_js__["a" /* Menu */], null), document.getElementById('menu'));
-ReactDOM.render(React.createElement(__WEBPACK_IMPORTED_MODULE_2__app_components_Header_js__["a" /* Header */], null), document.getElementById('header'));
+ReactDOM.render(React.createElement(__WEBPACK_IMPORTED_MODULE_1__app_components_Menu_js__["a" /* Menu */], null), document.getElementById("menu"));
+ReactDOM.render(React.createElement(__WEBPACK_IMPORTED_MODULE_2__app_components_Header_js__["a" /* Header */], null), document.getElementById("header"));
 
 /***/ }),
 /* 99 */
