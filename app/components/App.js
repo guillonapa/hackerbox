@@ -25,7 +25,7 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div style={{ paddingLeft: '30px', paddingRight: '30px', paddingTop: '0px', height: '105vh' }}>
+      <div style={{ paddingLeft: '30px', paddingRight: '30px', paddingTop: '0px', height: '100vh' }}>
 
         <Body topStories={this.props.topStories} mostRecent={this.props.mostRecent} base={this.props.base} />
         <Footer />

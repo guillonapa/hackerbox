@@ -15047,12 +15047,9 @@ class Header extends React.Component {
           React.createElement(
             'span',
             { className: 'title', onClick: this.handleClick },
-            'Hacker*',
-            React.createElement(
-              'span',
-              { id: 'secondary-title' },
-              'React '
-            )
+            React.createElement('i', { className: 'fas fa-archive' }),
+            ' Hacker Box',
+            React.createElement('span', { id: 'secondary-title' })
           )
         )
       ),
@@ -15062,12 +15059,6 @@ class Header extends React.Component {
         React.createElement(
           'span',
           { className: 'menu-icons head-h1' },
-          React.createElement(
-            'span',
-            { className: 'title', onClick: this.handleColorClick },
-            React.createElement('i', { className: 'fas fa-edit' })
-          ),
-          '\xA0\xA0',
           React.createElement(
             'span',
             { className: 'title', onClick: this.handleQuestionClick },
@@ -45980,7 +45971,7 @@ class App extends React.Component {
   render() {
     return React.createElement(
       'div',
-      { style: { paddingLeft: '30px', paddingRight: '30px', paddingTop: '0px', height: '105vh' } },
+      { style: { paddingLeft: '30px', paddingRight: '30px', paddingTop: '0px', height: '100vh' } },
       React.createElement(__WEBPACK_IMPORTED_MODULE_1__Body__["a" /* Body */], { topStories: this.props.topStories, mostRecent: this.props.mostRecent, base: this.props.base }),
       React.createElement(__WEBPACK_IMPORTED_MODULE_2__Footer__["a" /* Footer */], null)
     );
@@ -47223,77 +47214,78 @@ class Footer extends React.Component {
 var React = __webpack_require__(5);
 
 class Menu extends React.Component {
-
   handleHomeClick() {
-    window.open('.', '_self');
+    window.open(".", "_self");
   }
 
   handleProfileClick() {
-    $('#menuPopup').modal('toggle');
+    $("#menuPopup").modal("toggle");
   }
 
   handleSettingsClick() {
-    $('#menuPopup').modal('toggle');
+    $("#menuPopup").modal("toggle");
   }
 
   handleSitesClick() {
-    window.open('http://www.ycombinator.com/', '_blank');
+    window.open("http://www.ycombinator.com/", "_blank");
   }
 
   handleCloseMenuClick() {
-    document.getElementById('menu').style.width = "0";
+    document.getElementById("menu").style.width = "0";
     // document.getElementById('main').style.marginLeft= "0";
     document.body.style.backgroundColor = "white";
   }
 
   render() {
     return React.createElement(
-      'div',
-      { className: 'row', style: { padding: '20px' } },
+      "div",
+      { className: "row", style: { padding: "20px" } },
       React.createElement(
-        'div',
-        { className: 'col' },
+        "div",
+        { className: "col" },
         React.createElement(
-          'h2',
+          "h2",
           null,
           React.createElement(
-            'span',
-            { className: 'title closebtn', onClick: this.handleCloseMenuClick },
-            React.createElement('i', { className: 'far fa-times-circle' })
+            "span",
+            {
+              className: "title closebtn",
+              onClick: this.handleCloseMenuClick
+            },
+            React.createElement("i", { className: "far fa-times-circle" })
           )
         ),
-        React.createElement('br', null),
-        React.createElement('br', null),
+        React.createElement("br", null),
+        React.createElement("br", null),
         React.createElement(
-          'h1',
+          "h1",
           null,
-          'Menu'
+          "Menu"
         ),
-        React.createElement('br', null),
+        React.createElement("br", null),
         React.createElement(
-          'h3',
-          { className: 'menu-subtitle', onClick: this.handleHomeClick },
-          'Home'
-        ),
-        React.createElement(
-          'h3',
-          { className: 'menu-subtitle', onClick: this.handleProfileClick },
-          'Profile'
+          "h3",
+          { className: "menu-subtitle", onClick: this.handleHomeClick },
+          "\uD83C\uDFE0 Home"
         ),
         React.createElement(
-          'h3',
-          { className: 'menu-subtitle', onClick: this.handleSettingsClick },
-          'Settings'
+          "h3",
+          { className: "menu-subtitle", onClick: this.handleProfileClick },
+          "\uD83D\uDE0E Profile"
         ),
         React.createElement(
-          'h3',
-          { className: 'menu-subtitle', onClick: this.handleSitesClick },
-          'Sites'
+          "h3",
+          { className: "menu-subtitle", onClick: this.handleSettingsClick },
+          "\u2699\uFE0F Settings"
+        ),
+        React.createElement(
+          "h3",
+          { className: "menu-subtitle", onClick: this.handleSitesClick },
+          "\uD83C\uDF0E Sites"
         )
       )
     );
   }
-
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Menu;
 

@@ -29,13 +29,10 @@ export class Header extends React.Component {
     return (
       <div className="row" style={{height: '8vh', paddingTop: '10px', paddingLeft: '10px', paddingRight: '10px' }}>
         <div className="col" style={{ paddingLeft: '30px' }}>
-          <span className="head-h1"><span className="title" onClick={this.handleClick}>Hacker*<span id="secondary-title">React </span></span></span>
+          <span className="head-h1"><span className="title" onClick={this.handleClick}><i className="fas fa-archive"></i> Hacker Box<span id="secondary-title"></span></span></span>
         </div>
         <div className="col icons-col">
           <span className="menu-icons head-h1">
-            <span className="title" onClick={this.handleColorClick}>
-              <i className="fas fa-edit"></i>
-            </span>&nbsp;&nbsp;
             <span className="title" onClick={this.handleQuestionClick}>
               <i className="far fa-question-circle"></i>
             </span>&nbsp;&nbsp;
