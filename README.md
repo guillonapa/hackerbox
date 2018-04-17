@@ -10,6 +10,6 @@ Hacker Box is a platform where all your hacker reading comes to a place. There's
 
 We recommend checking out Hacker Box with your first cup of coffee in the morning. Cheers! ☕
 
-[menu](gifs/menu.gif)
+![menu](gifs/menu.gif)
 
 Check [Hacker News](https://news.ycombinator.com/) by Y Combinator.
