@@ -7560,7 +7560,7 @@ class Card extends React.Component {
           this.props.id
         ),
         React.createElement(
-          'h6',
+          'p',
           { className: 'card-subtitle mb-2', id: 'site-' + this.props.id },
           this.props.subtitle
         ),

@@ -36,7 +36,7 @@ export class Card extends React.Component {
       <div className="card bg-light mb-3 article-card">
         <div className="card-body" style={{ boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
           <h5 className="card-title" id={this.props.id} >{this.props.id}</h5>
-          <h6 className="card-subtitle mb-2" id={'site-'+this.props.id}>{this.props.subtitle}</h6>
+          <p className="card-subtitle mb-2" id={'site-'+this.props.id}>{this.props.subtitle}</p>
           <p className="card-text"><a href="https://www.google.com/" id={'link-'+this.props.id} target="_blank" >Read article</a></p>
         </div>
       </div>
