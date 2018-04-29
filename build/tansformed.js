@@ -15013,7 +15013,7 @@ var ReactDOM = __webpack_require__(49);
 class Header extends React.Component {
 
   handleClick() {
-    window.open('https://github.com/guillonapa/react-ion', '_blank');
+    window.open('https://github.com/guillonapa/hackerbox', '_blank');
   }
 
   handleQuestionClick() {
@@ -47157,7 +47157,7 @@ var React = __webpack_require__(5);
 class Footer extends React.Component {
 
   handleGitHub() {
-    window.open('https://github.com/guillonapa', '_blank');
+    window.open('https://github.com/guillonapa/hackerbox', '_blank');
   }
 
   handleLinkedIn() {

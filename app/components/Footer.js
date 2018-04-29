@@ -3,7 +3,7 @@ var React = require('react');
 export class Footer extends React.Component {
 
   handleGitHub() {
-    window.open('https://github.com/guillonapa', '_blank');
+    window.open('https://github.com/guillonapa/hackerbox', '_blank');
   }
 
   handleLinkedIn() {

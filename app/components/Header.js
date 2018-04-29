@@ -4,7 +4,7 @@ var ReactDOM = require('react-dom');
 export class Header extends React.Component {
 
   handleClick() {
-    window.open('https://github.com/guillonapa/react-ion', '_blank');
+    window.open('https://github.com/guillonapa/hackerbox', '_blank');
   }
 
   handleQuestionClick() {

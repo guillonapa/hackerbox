@@ -1,6 +1,6 @@
 # Hacker Box
 
-Hacker Box is a web application that I'm building as an exercise to learn React.js and other web technologies. This is a work in progress. Checkout the site [here](https://hacker-react.herokuapp.com/)!
+Hacker Box is a web application that I'm building as an exercise to learn React.js and other web technologies. This is a work in progress. Checkout the site [here](https://hackerbox.herokuapp.com/)!
 
 For now you can drag cards around and you can read the "latest" and "top" stories as featured in Hacker News!
 
