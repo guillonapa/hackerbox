@@ -38,3 +38,11 @@ function getMostRecentStories(topStories) {
 getTopStories();
 ReactDOM.render(<Menu />, document.getElementById("menu"));
 ReactDOM.render(<Header />, document.getElementById("header"));
+
+var url = 'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=17eb61e8bd484e17b7ad33c4428ebfc4';
+var req = new Request(url);
+fetch(req)
+    .then(function(response) {
+        console.log("Here comes the json...");
+        console.log(response.json());
+    })

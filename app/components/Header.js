@@ -1,6 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+import { AdditionalView } from "./AdditionalView.js";
+
 export class Header extends React.Component {
 
   handleClick() {
@@ -25,6 +27,12 @@ export class Header extends React.Component {
     this.setState({ color: newColor, colorIndex: newColorIndex });
   }
 
+  handleAdditionalView() {
+    ReactDOM.render(
+      <AdditionalView />, document.getElementById("space")
+    );
+  }
+
   render() {
     return (
       <div className="row" style={{height: '8vh', paddingTop: '10px', paddingLeft: '10px', paddingRight: '10px' }}>
@@ -33,6 +41,9 @@ export class Header extends React.Component {
         </div>
         <div className="col icons-col">
           <span className="menu-icons head-h1">
+            <span className="additional-view title" onClick={this.handleAdditionalView}>
+              <i className="fas fa-eye"></i>
+            </span>&nbsp;&nbsp;
             <span className="title" onClick={this.handleQuestionClick}>
               <i className="far fa-question-circle"></i>
             </span>&nbsp;&nbsp;

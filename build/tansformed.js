@@ -15133,6 +15133,12 @@ getTopStories();
 ReactDOM.render(React.createElement(__WEBPACK_IMPORTED_MODULE_1__app_components_Menu_js__["a" /* Menu */], null), document.getElementById("menu"));
 ReactDOM.render(React.createElement(__WEBPACK_IMPORTED_MODULE_2__app_components_Header_js__["a" /* Header */], null), document.getElementById("header"));
 
+var url = 'https://newsapi.org/v2/top-headlines?' + 'country=us&' + 'apiKey=17eb61e8bd484e17b7ad33c4428ebfc4';
+var req = new Request(url);
+fetch(req).then(function (response) {
+  console.log(response.json());
+});
+
 /***/ }),
 /* 99 */
 /***/ (function(module, exports, __webpack_require__) {
