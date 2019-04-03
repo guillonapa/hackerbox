@@ -43,9 +43,9 @@ export class Header extends React.Component {
         </div>
         <div className="col icons-col">
           <span className="menu-icons head-h1">
-            <span className="additional-view title" onClick={this.handleAdditionalView}>
+            {/* <span className="additional-view title" onClick={this.handleAdditionalView}>
               <i className="fas fa-eye"></i>
-            </span>&nbsp;&nbsp;
+            </span>&nbsp;&nbsp; */}
             <span className="title" onClick={this.handleQuestionClick}>
               <i className="far fa-question-circle"></i>
             </span>&nbsp;&nbsp;
