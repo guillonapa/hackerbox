@@ -1,5 +1,4 @@
 import { Stories } from '../stories/Stories';
-import { MostRecentStories } from '../stories/MostRecentStories';
 import { SavedStories } from '../stories/SavedStories';
 
 var React = require('react');

@@ -1,5 +1,4 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
 
 var url = 'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=17eb61e8bd484e17b7ad33c4428ebfc4';
 var req = new Request(url);

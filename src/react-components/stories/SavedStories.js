@@ -1,16 +1,8 @@
-import { Card } from './Card'
-
 var React = require('react');
 
 const storiesColor = '#E3E3E3';
-var cards = null;
 
 export class SavedStories extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="card" style={{ boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" }}>
