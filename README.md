@@ -12,14 +12,14 @@ We recommend checking out Hacker Box with your first cup of coffee in the mornin
 
 ## Menu
 
-![menu](gifs/menu.gif)
+![menu](docs/gifs/menu.gif)
 
 ## Dragging Cards
 
-![dragging](gifs/drag.gif)
+![dragging](docs/gifs/drag.gif)
 
 ## Reading Articles
 
-![reading](gifs/read.gif)
+![reading](docs/gifs/read.gif)
 
 Check [Hacker News](https://news.ycombinator.com/) by Y Combinator.
