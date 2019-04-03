@@ -23,7 +23,6 @@
 
 #include <stddef.h>
 
-#include <grpc/impl/codegen/exec_ctx_fwd.h>
 #include <grpc/impl/codegen/gpr_slice.h>
 
 typedef struct grpc_slice grpc_slice;
@@ -43,7 +42,7 @@ typedef struct grpc_slice grpc_slice;
 
 typedef struct grpc_slice_refcount_vtable {
   void (*ref)(void*);
-  void (*unref)(grpc_exec_ctx* exec_ctx, void*);
+  void (*unref)(void*);
   int (*eq)(grpc_slice a, grpc_slice b);
   uint32_t (*hash)(grpc_slice slice);
 } grpc_slice_refcount_vtable;
@@ -82,8 +81,8 @@ struct grpc_slice {
   struct grpc_slice_refcount* refcount;
   union grpc_slice_data {
     struct grpc_slice_refcounted {
-      uint8_t* bytes;
       size_t length;
+      uint8_t* bytes;
     } refcounted;
     struct grpc_slice_inlined {
       uint8_t length;
@@ -96,7 +95,7 @@ struct grpc_slice {
 
 /** Represents an expandable array of slices, to be interpreted as a
    single item. */
-typedef struct {
+typedef struct grpc_slice_buffer {
   /** This is for internal use only. External users (i.e any code outside grpc
    * core) MUST NOT use this field */
   grpc_slice* base_slices;

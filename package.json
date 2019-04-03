@@ -1,38 +1,31 @@
 {
-  "name": "react-ion",
-  "version": "1.0.0",
-  "description": "A simple application that I will build with the goal of learning how to use the React libraries in this and other projects. Checkout the site [here](https://monty-hall-show.herokuapp.com/)!",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "start": "webpack-dev-server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/guillonapa/React-ion.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/guillonapa/React-ion/issues"
-  },
-  "homepage": "https://github.com/guillonapa/React-ion#readme",
+  "name": "hacker-box",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "firebase": "^4.8.2",
-    "re-base": "^3.2.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "bootstrap": "^4.3.1",
+    "firebase": "^5.9.2",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.7",
+    "re-base": "^4.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-dragula": "^1.1.17",
-    "reactfire": "^1.0.0"
+    "react-scripts": "2.1.8"
   },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-react": "^6.24.1",
-    "html-webpack-plugin": "^2.30.1",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
-  }
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
