@@ -1,6 +1,6 @@
-import { Header } from './Header';
-import { Body } from './Body';
-import { Footer } from './Footer';
+import { Header } from './sections/Header';
+import { Body } from './sections/Body';
+import { Footer } from './sections/Footer';
 
 var React = require('react');
 
@@ -27,7 +27,6 @@ export class App extends React.Component {
   render() {
     return (
       <div style={{ paddingLeft: '30px', paddingRight: '30px', paddingTop: '0px', height: '100vh' }}>
-
         <Body topStories={this.props.topStories} mostRecent={this.props.mostRecent} base={this.props.base} />
         <Footer />
       </div>

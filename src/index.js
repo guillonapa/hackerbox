@@ -1,6 +1,6 @@
-import { App } from "./components/App";
-import { Menu } from "./components/Menu";
-import { Header } from "./components/Header";
+import { App } from "./react-components/App";
+import { Menu } from "./react-components/Menu";
+import { Header } from "./react-components/Header";
 
 var React = require("react");
 var ReactDOM = require("react-dom");
