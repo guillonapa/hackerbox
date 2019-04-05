@@ -1,41 +1,76 @@
 import { Body } from './sections/Body';
 import { Footer } from './sections/Footer';
+import { Colors } from '@blueprintjs/core';
+import { HackerBoxNavbar } from './sections/HackerBoxNavbar';
 
 var React = require('react');
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI('17eb61e8bd484e17b7ad33c4428ebfc4');
 
-const colors = ['#61BFAD', '#FF8B8B', '#F9F7E8', '#B7E3E4'];
-const numColors = 4;
+/*        
+    THINGS TO DO
+    ------------
+  [*] Set the state at the root of the app: stories data.
+  [*] Read the stories data (state) appropriately from cards.
+  [*] Use a map to create all the Card components.
+  [ ] Set up the Suggest component correctly (including data sources).
+  [ ] Query News API after a new selection is made from Suggest.
+  [ ] Reload page with Home button (same query must remain).
+  [ ] Add help dialog to Help button.
+  [ ] Add menu to menu button.
+  [ ] Add a propper footer.
+  [ ] Add database to application.
+  [ ] Add users with username and password.
+  [ ] Add options to each story card (open, save, dismiss, copy link, etc.).
+  [ ] Add table for 'Saved Stories'.
+  [ ] Add section, tray, or page to show saved stories.
+  [ ] Add profile page with settings.
+*/
 
 export class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      color: colors[0],
-      colorIndex: 0
-    };
-    this.handleClick = this.handleClick.bind(this);
+  state = {
+    skeleton: "bp3-skeleton",
+    articles: Array(10).fill(
+      {
+        author: "___",
+        title: "___",
+        description: "___",
+        url: "___",
+        source: {
+          id: "___",
+          name: "___"
+        }
+      }),
+    source: "the-verge",
+    theme: "bp3-dark"
   }
 
-  handleClick() {
-    let newColorIndex = (this.state.colorIndex + 1)%numColors;
-    let newColor = colors[newColorIndex];
-    this.setState({ color: newColor, colorIndex: newColorIndex });
+  componentDidMount() {
+    // call the API and get stories for default
+    newsapi.v2.topHeadlines({
+      sources: this.state.source
+    }).then(response => {
+      console.log("newsapi.v2 response:", response);
+      // for dramatic effect
+      setTimeout(() => {
+        this.setState({
+          articles: response.articles,
+          skeleton: ""
+        });
+      }, 1000);
+    });
   }
 
   render() {
+    const { skeleton, articles } = this.state;
     return (
-      <div style={{ paddingLeft: '30px', paddingRight: '30px', paddingTop: '0px', height: '100vh' }}>
-        <Body topStories={this.props.topStories} mostRecent={this.props.mostRecent} base={this.props.base} />
+      <div className={this.state.theme} style={{background: Colors.DARK_GRAY3}}>
+        <HackerBoxNavbar />
+        <Body skeleton={skeleton} articles={articles} />
         <Footer />
       </div>
     );
   }
 
 }
-
-// <div style={{background: 'linear-gradient(to bottom right, #05545B, ' + this.state.color + ')' , padding: '30px', height: '105vh' }}>
-//
-//   <Body topStories={this.props.topStories} mostRecent={this.props.mostRecent} base={this.props.base} />
-//   <Footer />
-// </div>
