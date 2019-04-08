@@ -8,7 +8,7 @@ export class Body extends React.Component {
     const { skeleton, articles } = this.props;
     return(
       <div style={{padding: "30px"}}>
-        <Search />
+        <Search makeNewsApiCall={this.props.makeNewsApiCall} listOfSources={this.props.listOfSources} />
         <Results skeleton={skeleton} articles={articles} />
       </div>
     );
