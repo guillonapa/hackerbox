@@ -1,7 +1,8 @@
 import { Body } from './sections/Body';
 import { Footer } from './sections/Footer';
-import { Colors } from '@blueprintjs/core';
+import { Colors, Dialog, Classes, Drawer } from '@blueprintjs/core';
 import { HackerBoxNavbar } from './sections/HackerBoxNavbar';
+import Emoji from 'a11y-react-emoji';
 
 var React = require('react');
 const NewsAPI = require('newsapi');
@@ -39,6 +40,7 @@ export class App extends React.Component {
           title: "___",
           description: "___",
           url: "___",
+          urlToImage: "gradient.png",
           source: {
             id: "___",
             name: "___"
@@ -46,9 +48,12 @@ export class App extends React.Component {
         }),
       source: "",
       country: "us",
-      pageSize: 5,
+      pageSize: 30,
       theme: "bp3-dark",
-      listOfSources: []
+      listOfSources: [],
+      isOpen: false,
+      includeImages: true,
+      currentlySelectedItem: null
     }
   }
     
@@ -86,14 +91,38 @@ export class App extends React.Component {
   }
 
   render() {
-    const { skeleton, articles, listOfSources } = this.state;
+    const { skeleton, articles, listOfSources, includeImages, currentlySelectedItem } = this.state;
     return (
       <div className={this.state.theme} style={{background: Colors.DARK_GRAY3}}>
-        <HackerBoxNavbar />
-        <Body skeleton={skeleton} articles={articles} makeNewsApiCall={this.makeNewsApiCall} listOfSources={listOfSources} />
+        <HackerBoxNavbar handleOpen={this.handleOpen} 
+                          makeNewsApiCall={this.makeNewsApiCall}
+                          handleCurrentlySelectedItem={this.handleCurrentlySelectedItem} />
+        <Body skeleton={skeleton} 
+              articles={articles} 
+              makeNewsApiCall={this.makeNewsApiCall} 
+              listOfSources={listOfSources} 
+              includeImages={includeImages} 
+              currentlySelectedItem={currentlySelectedItem}
+              handleIncludeImages={this.handleIncludeImages}
+              handleCurrentlySelectedItem={this.handleCurrentlySelectedItem} />
         <Footer />
+        <Dialog 
+          isOpen={this.state.isOpen} 
+          className={this.state.theme} 
+          onClose={this.handleClose}
+          title="Welcome to HackerBox">
+          <div className={Classes.DIALOG_BODY}>
+            <p>Hacker Box is a platform where all your hacker reading comes to a place. There's a ton of amazing blogs and sites, but it's hard to keep up with all the cool content. Hacker Box is a place where you can find and read awesome material, or save it for later reads!</p>
+            <p>We recommend checking out Hacker Box with your first cup of coffee in the morning. Cheers! <Emoji symbol="☕" /></p>
+          </div>
+        </Dialog>
+        <Drawer className={this.state.theme} isOpen={false} />
       </div>
     );
   }
 
+  handleOpen = () => this.setState({ isOpen: true });
+  handleClose = () => this.setState({ isOpen: false });
+  handleIncludeImages = () => this.setState({ includeImages: !this.state.includeImages });
+  handleCurrentlySelectedItem = (item) => this.setState({ currentlySelectedItem: item });
 }

@@ -1,50 +1,51 @@
-import { Label, MenuItem } from '@blueprintjs/core';
+import { Label, MenuItem, Switch } from '@blueprintjs/core';
 import { Suggest } from '@blueprintjs/select';
 
 var React = require('react');
 
 export class Search extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            currentlySelectedItem: null
-        }
-    }
     render() {
         return (
-            <div style={{display: "flex", alignItems: "center", padding: "10px"}}>
-                <Label style={{marginRight: "20px", marginBottom: "0px"}}>Search for a source:</Label>
-                <Suggest 
-                    selectedItem={this.state.currentlySelectedItem}
-                    noResults={<MenuItem disabled={true} text="No results." />}
-                    popoverProps={{minimal: true, popoverClassName: "searchPopover"}}
-                    items={this.props.listOfSources} 
-                    itemPredicate={(query, item) => {
-                        return item.name.toLowerCase().includes(query.toLowerCase());
-                    }}
-                    onItemSelect={item => {
-                        this.props.makeNewsApiCall(item.id);
-                        this.setState({currentlySelectedItem: item});
-                    }}
-                    itemRenderer={(item, meta) => {
-                        return <MenuItem 
-                            label={item.country}
-                            active={meta.modifiers.active}
-                            disabled={meta.modifiers.disabled}
-                            key={item.id}
-                            text={item.name}
-                            onClick={() => {
-                                this.props.makeNewsApiCall(item.id);
-                                this.setState({currentlySelectedItem: item});
-                            }}
-                        />
-                    }}
-                    inputValueRenderer={
-                        item => {
-                            return item.name;
+            <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                <div style={{display: "flex", alignItems: "center", padding: "10px"}}>
+                    <Label style={{marginRight: "20px", marginBottom: "0px"}}>Search for a source:</Label>
+                    <Suggest 
+                        selectedItem={this.props.currentlySelectedItem}
+                        resetOnClose={true}
+                        noResults={<MenuItem disabled={true} text="No results." />}
+                        popoverProps={{minimal: true, popoverClassName: "searchPopover"}}
+                        items={this.props.listOfSources} 
+                        itemPredicate={(query, item) => {
+                            return item.name.toLowerCase().includes(query.toLowerCase());
+                        }}
+                        onItemSelect={item => {
+                            this.props.makeNewsApiCall(item.id);
+                            this.props.handleCurrentlySelectedItem(item);
+                        }}
+                        itemRenderer={(item, meta) => {
+                            return <MenuItem 
+                                label={item.country}
+                                active={meta.modifiers.active}
+                                disabled={meta.modifiers.disabled}
+                                key={item.id}
+                                text={item.name}
+                                onClick={() => {
+                                    this.props.makeNewsApiCall(item.id);
+                                    this.props.handleCurrentlySelectedItem(item);
+                                }}
+                            />
+                        }}
+                        inputValueRenderer={
+                            item => {
+                                return item === null ? "" : item.name;
+                            }
                         }
-                    }
-                ></Suggest>
+                    ></Suggest>
+                </div>
+                    <Switch style={{marginBottom: "0px"}}
+                            checked={this.props.includeImages} 
+                            label="Include images" 
+                            onChange={(val) => this.props.handleIncludeImages()} />
             </div>
         )
     }

@@ -12,9 +12,15 @@ export class HackerBoxNavbar extends React.Component {
                         icon="home" 
                         text="Home" 
                         onClick={() => {
-                            
-                        }} />
-                    <Button className="bp3-minimal" icon="help" text="Help" />
+                            this.props.makeNewsApiCall(null);
+                            this.props.handleCurrentlySelectedItem(null);
+                        }}
+                        />
+                    <Button 
+                        className="bp3-minimal" 
+                        icon="help" 
+                        text="Help"
+                        onClick={() => {this.props.handleOpen()}} />
                 </Navbar.Group>
                 <Navbar.Group align={Alignment.RIGHT}>
                     <Button className="bp3-minimal" icon="menu" />
