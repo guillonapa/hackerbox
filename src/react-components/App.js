@@ -41,7 +41,7 @@ export class App extends React.Component {
           title: "___",
           description: "___",
           url: "___",
-          urlToImage: "gradient.png",
+          urlToImage: "assets/images/gradient.png",
           source: {
             id: "___",
             name: "___"

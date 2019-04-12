@@ -20,7 +20,7 @@ export class Results extends React.Component {
                             <div className="card-body">
                                 {/* add ".bp3-heading" to h3 */}
                                 <div style={{marginRight: "10px"}} className={includeImages ? skeleton : "hide"}>
-                                    <img className="card-image" alt="article title" src={article.urlToImage === null ? "gradient.png" : article.urlToImage}/>
+                                    <img className="card-image" alt="article title" src={article.urlToImage === null ? "assets/images/gradient.png" : article.urlToImage}/>
                                 </div>
                                 <div style={{width: "100%"}}>
                                     <div className="card-header">
