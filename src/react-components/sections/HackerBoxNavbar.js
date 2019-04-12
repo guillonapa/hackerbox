@@ -23,7 +23,10 @@ export class HackerBoxNavbar extends React.Component {
                         onClick={() => {this.props.handleOpen()}} />
                 </Navbar.Group>
                 <Navbar.Group align={Alignment.RIGHT}>
-                    <Button className="bp3-minimal" icon="menu" />
+                    <Button 
+                        className="bp3-minimal" 
+                        icon="menu"
+                        onClick={() => this.props.handleDrawerOpen()} />
                 </Navbar.Group>
             </Navbar>
         );

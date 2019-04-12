@@ -1,3 +1,5 @@
+import { Classes, Colors } from '@blueprintjs/core';
+
 var React = require('react');
 
 export class Footer extends React.Component {
@@ -16,13 +18,18 @@ export class Footer extends React.Component {
 
   render() {
     return (
-      <div className="row" style={{paddingTop: '15px', height: '8vh'}}>
-        <div className="col">
-
-        </div>
-        <div className="col-md-auto">
-          <h6>&copy; Guillermo Narvaez (2017-2018)&nbsp;&nbsp;&nbsp;<span className="footer-icons" onClick={this.handleGitHub}><i className="fab fa-github"></i></span>&nbsp;&nbsp;&nbsp;<span className="footer-icons" onClick={this.handleLinkedIn}><i className="fab fa-linkedin"></i></span>&nbsp;&nbsp;&nbsp;<span className="footer-icons" onClick={this.handleSite}><i className="fas fa-desktop"></i></span></h6>
-        </div>
+      <div className={Classes.DRAWER_FOOTER + " hb-footer"} style={{color: Colors.GRAY3}}>
+        <h4>
+          &copy;
+          Guillermo Narvaez (2017-2018)
+        </h4>
+        <h4>
+          <a className="footer-icons" href="https://github.com/guillonapa/hackerbox" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>
+          &nbsp;&nbsp;&nbsp;
+          <a className="footer-icons" href="https://www.linkedin.com/in/g-narvaez" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
+          &nbsp;&nbsp;&nbsp;
+          <a className="footer-icons" href="https://guillonapa.github.io/" target="_blank" rel="noopener noreferrer"><i className="fas fa-desktop"></i></a>
+        </h4>
       </div>
     );
   }

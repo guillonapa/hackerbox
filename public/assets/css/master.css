@@ -18,6 +18,20 @@
     width: 100%;
 }
 
+.hb-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hb-log-in-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .hide {
     display: none;
+}
+
+.log-in {
+    margin-bottom: 15px;
 }
