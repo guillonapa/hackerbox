@@ -19,11 +19,11 @@ const newsapi = new NewsAPI('17eb61e8bd484e17b7ad33c4428ebfc4');
   [*] Query News API after a new selection is made from Suggest.
   [*] Reload page with Home button.
   [*] Add help dialog to Help button.
-  [ ] Add menu to menu button.
-  [ ] Add a propper footer.
+  [*] Add menu to menu button.
+  [*] Add a propper footer.
   [ ] Add database to application.
   [ ] Add users with username and password.
-  [ ] Add options to each story card (open, save, dismiss, copy link, etc.).
+  [*] Add options to each story card (open, save, dismiss, copy link, etc.).
   [ ] Add table for 'Saved Stories'.
   [ ] Add section, tray, or page to show saved stories.
   [ ] Add profile page with settings.

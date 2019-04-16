@@ -15,7 +15,7 @@ export class HackerBoxDrawer extends React.Component {
                 title="Your Dashboard">
                 <div className={Classes.DIALOG_BODY}>
                     <Tabs id="auth-tabs" selectedTabId={this.props.selectedTabId} onChange={this.props.handleSelectedTab}>
-                        <Tab id="log-in-tab" title="Log in" panel={<LogIn />} />
+                        <Tab id="log-in-tab" title="Log in" panel={<LogIn showPassword={this.props.showPassword} handleLockClick={this.props.handleLockClick} />} />
                         <Tab id="register-tab" title="Register" panel={<Register />} />
                     </Tabs>
                 </div>
