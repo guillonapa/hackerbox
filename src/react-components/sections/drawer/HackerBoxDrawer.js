@@ -1,26 +1,52 @@
 import { Drawer, Classes, Tabs, Tab } from '@blueprintjs/core';
-import { LogIn } from './LogIn';
-import { Register } from './Register';
+import LogIn from './LogIn';
+import Register from './Register';
 
-var React = require("react");
+const React = require('react');
 
-export class HackerBoxDrawer extends React.Component {
-    render() {
-        return (
-            <Drawer 
-                className={this.props.theme} 
-                isOpen={this.props.isDrawerOpen}
-                onClose={this.props.handleDrawerClose} 
-                icon="dashboard"
-                title="Your Dashboard">
-                <div className={Classes.DIALOG_BODY}>
-                    <Tabs id="auth-tabs" selectedTabId={this.props.selectedTabId} onChange={this.props.handleSelectedTab}>
-                        <Tab id="log-in-tab" title="Log in" panel={<LogIn showPassword={this.props.showPassword} handleLockClick={this.props.handleLockClick} />} />
-                        <Tab id="register-tab" title="Register" panel={<Register />} />
-                    </Tabs>
-                </div>
-                <div className={Classes.DRAWER_FOOTER}>&copy; Guillermo Narvaez (2019)</div>
-            </Drawer>
-        );
-    }
-}
+const HackerBoxDrawer = props => {
+  const {
+    theme,
+    isDrawerOpen,
+    handleDrawerClose,
+    selectedTabId,
+    handleSelectedTab,
+    showPassword,
+    handleLockClick
+  } = props;
+
+  return (
+    <Drawer
+      className={theme}
+      isOpen={isDrawerOpen}
+      onClose={handleDrawerClose}
+      icon="dashboard"
+      title="Your Dashboard"
+    >
+      <div className={Classes.DIALOG_BODY}>
+        <Tabs
+          id="auth-tabs"
+          selectedTabId={selectedTabId}
+          onChange={handleSelectedTab}
+        >
+          <Tab
+            id="log-in-tab"
+            title="Log in"
+            panel={
+              <LogIn
+                showPassword={showPassword}
+                handleLockClick={handleLockClick}
+              />
+            }
+          />
+          <Tab id="register-tab" title="Register" panel={<Register />} />
+        </Tabs>
+      </div>
+      <div className={Classes.DRAWER_FOOTER}>
+        &copy; Guillermo Narvaez (2019)
+      </div>
+    </Drawer>
+  );
+};
+
+export default HackerBoxDrawer;

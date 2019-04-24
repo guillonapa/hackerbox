@@ -1,22 +1,36 @@
-import { Search } from './Search';
-import { Results } from './Results';
+import Search from './Search';
+import Results from './Results';
 
-var React = require('react');
+const React = require('react');
 
-export class Body extends React.Component {
-  render() {
-    const { skeleton, articles } = this.props;
-    return(
-      <div style={{padding: "30px"}}>
-        <Search makeNewsApiCall={this.props.makeNewsApiCall} 
-                listOfSources={this.props.listOfSources} 
-                includeImages={this.props.includeImages} 
-                currentlySelectedItem={this.props.currentlySelectedItem}
-                handleIncludeImages={this.props.handleIncludeImages}
-                handleCurrentlySelectedItem={this.props.handleCurrentlySelectedItem} />
-        <Results skeleton={skeleton} articles={articles} includeImages={this.props.includeImages} />
-      </div>
-    );
-  }
+const Body = props => {
+  const {
+    skeleton,
+    articles,
+    makeNewsApiCall,
+    listOfSources,
+    includeImages,
+    currentlySelectedItem,
+    handleIncludeImages,
+    handleCurrentlySelectedItem
+  } = props;
+  return (
+    <div style={{ padding: '30px' }}>
+      <Search
+        makeNewsApiCall={makeNewsApiCall}
+        listOfSources={listOfSources}
+        includeImages={includeImages}
+        currentlySelectedItem={currentlySelectedItem}
+        handleIncludeImages={handleIncludeImages}
+        handleCurrentlySelectedItem={handleCurrentlySelectedItem}
+      />
+      <Results
+        skeleton={skeleton}
+        articles={articles}
+        includeImages={includeImages}
+      />
+    </div>
+  );
+};
 
-}
+export default Body;
