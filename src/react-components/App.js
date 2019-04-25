@@ -11,7 +11,8 @@ import HackerBoxDrawer from './sections/drawer/HackerBoxDrawer';
 const React = require('react');
 // const NewsAPI = require('newsapi');
 
-const newsapikey = '17eb61e8bd484e17b7ad33c4428ebfc4';
+const newsapikey =
+  process.env.NEWS_API_KEY === undefined ? 'xxx' : process.env.NEWS_API_KEY;
 const pageSize = 30;
 // const newsapi = new NewsAPI(newsapikey);
 
