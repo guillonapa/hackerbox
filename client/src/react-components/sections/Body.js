@@ -12,7 +12,11 @@ const Body = props => {
     includeImages,
     currentlySelectedItem,
     handleIncludeImages,
-    handleCurrentlySelectedItem
+    handleCurrentlySelectedItem,
+    handleOpenArticle,
+    handleSaveArticle,
+    showSavedStories,
+    savedStories
   } = props;
   return (
     <div style={{ padding: '30px' }}>
@@ -28,6 +32,10 @@ const Body = props => {
         skeleton={skeleton}
         articles={articles}
         includeImages={includeImages}
+        handleOpenArticle={handleOpenArticle}
+        handleSaveArticle={handleSaveArticle}
+        showSavedStories={showSavedStories}
+        savedStories={savedStories}
       />
     </div>
   );

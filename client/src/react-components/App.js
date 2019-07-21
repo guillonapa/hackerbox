@@ -2,6 +2,7 @@
 
 import { Colors, Dialog, Classes } from '@blueprintjs/core';
 import Emoji from 'a11y-react-emoji';
+import axios from 'axios';
 
 import Body from './sections/Body';
 import Footer from './sections/Footer';
@@ -11,9 +12,9 @@ import HackerBoxDrawer from './sections/drawer/HackerBoxDrawer';
 const React = require('react');
 // const NewsAPI = require('newsapi');
 
-const newsapikey = '17eb61e8bd484e17b7ad33c4428ebfc4';
 const pageSize = 30;
 // const newsapi = new NewsAPI(newsapikey);
+const SERVER_URL = 'http://localhost:3001';
 
 /*        
     THINGS TO DO
@@ -62,21 +63,21 @@ class App extends React.Component {
       includeImages: true,
       currentlySelectedItem: null,
       showPassword: false,
-      selectedTab: 'log-in-tab'
+      selectedTab: 'log-in-tab',
+      showSavedStories: false,
+      savedStories: []
     };
   }
 
   componentDidMount() {
     const { source } = this.state;
     this.makeNewsApiCall(source);
-    const url = `https://newsapi.org/v2/sources?language=en&apiKey=${newsapikey}`;
-    const req = new Request(url);
-    fetch(req).then(response => {
-      response.json().then(obj => {
+    axios.get(`${SERVER_URL}/sources`).then(response => {
+      if (response.data.success) {
         this.setState({
-          listOfSources: obj.sources
+          listOfSources: response.data.sources
         });
-      });
+      }
     });
     // newsapi.v2.sources({
     //   language: "en"
@@ -115,33 +116,68 @@ class App extends React.Component {
     this.setState({ showPassword: !showPassword });
   };
 
+  handleOpenArticle = link => {
+    return () => {
+      window.open(link, '_blank');
+    };
+  };
+
+  handleSaveArticle = (title, description, url, imageUrl, source) => {
+    return () => {
+      axios.post(`${SERVER_URL}/add`, {
+        user: 'guillonapa',
+        title,
+        description,
+        url,
+        imageUrl,
+        source
+      });
+    };
+  };
+
+  // handle the log in button
+  handleLogInClick = () => {
+    console.log('Log in button clicked...');
+    fetch(`${SERVER_URL}/getData`)
+      .then(data => data.json())
+      .then(res => console.log(res));
+  };
+
   // handle the changing of tabs between sign-in/sign-up
   handleChangeTab = tabId => this.setState({ selectedTab: tabId });
+
+  handleOpenSavedStories = () => {
+    this.setState({ skeleton: 'bp3-skeleton', showSavedStories: true });
+    axios
+      .get(`${SERVER_URL}/getData`, { params: { user: 'guillonapa' } })
+      .then(res => {
+        if (res.data.success) {
+          this.setState({ savedStories: res.data.data, skeleton: '' });
+        }
+      });
+  };
 
   makeNewsApiCall(source) {
     const { country } = this.state;
     this.setState({ skeleton: 'bp3-skeleton' });
-
-    let url;
-    if (source === null || source === '') {
-      url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${newsapikey}&pageSize=${pageSize}`;
-    } else {
-      url = `https://newsapi.org/v2/top-headlines?sources=${source}&apiKey=${newsapikey}&pageSize=${pageSize}`;
-    }
-    const req = new Request(url);
-    fetch(req).then(response => {
-      // console.log(response.json());
-      setTimeout(() => {
-        response.json().then(obj => {
+    axios
+      .get(`${SERVER_URL}/stories`, {
+        params: {
+          source,
+          country,
+          pageSize
+        }
+      })
+      .then(response => {
+        if (response.data.success) {
           this.setState({
             source,
-            // articles: response.json().articles,
-            articles: obj.articles,
-            skeleton: ''
+            articles: response.data.stories,
+            skeleton: '',
+            showSavedStories: false
           });
-        });
-      }, 1000);
-    });
+        }
+      });
 
     // let options;
     // // call the API and get stories for default
@@ -173,7 +209,9 @@ class App extends React.Component {
       isDialogOpen,
       isDrawerOpen,
       showPassword,
-      selectedTab
+      selectedTab,
+      showSavedStories,
+      savedStories
     } = this.state;
     return (
       <div className={theme} style={{ background: Colors.DARK_GRAY3 }}>
@@ -182,6 +220,7 @@ class App extends React.Component {
           handleDrawerOpen={this.handleDrawerOpen}
           makeNewsApiCall={this.makeNewsApiCall}
           handleCurrentlySelectedItem={this.handleCurrentlySelectedItem}
+          handleOpenSavedStories={this.handleOpenSavedStories}
         />
         <Body
           skeleton={skeleton}
@@ -192,6 +231,10 @@ class App extends React.Component {
           currentlySelectedItem={currentlySelectedItem}
           handleIncludeImages={this.handleIncludeImages}
           handleCurrentlySelectedItem={this.handleCurrentlySelectedItem}
+          handleOpenArticle={this.handleOpenArticle}
+          handleSaveArticle={this.handleSaveArticle}
+          showSavedStories={showSavedStories}
+          savedStories={savedStories}
         />
         <Footer />
         <Dialog
@@ -222,6 +265,7 @@ class App extends React.Component {
           theme={theme}
           selectedTab={selectedTab}
           handleChangeTab={this.handleChangeTab}
+          handleLogInClick={this.handleLogInClick}
         />
       </div>
     );

@@ -4,13 +4,13 @@ import { InputGroup, Button, Intent, Tooltip } from '@blueprintjs/core';
 const React = require('react');
 
 const LogIn = props => {
-  const { showPassword, handleLockClick } = props;
+  const { showPassword, handleLockClick, handleLogInClick } = props;
 
   const lockButton = (
     <Tooltip content="Show/Hide Password">
       <Button
         icon={showPassword ? 'unlock' : 'lock'}
-        minimal={true} // XXX this should be true
+        minimal={true}
         intent={Intent.WARNING}
         onClick={handleLockClick}
       />
@@ -33,6 +33,7 @@ const LogIn = props => {
           text="Log in"
           intent={Intent.SUCCESS}
           rightIcon="log-in"
+          onClick={handleLogInClick}
         />
       </div>
     </div>

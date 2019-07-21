@@ -7,7 +7,8 @@ const HackerBoxNavbar = props => {
     makeNewsApiCall,
     handleCurrentlySelectedItem,
     handleOpen,
-    handleDrawerOpen
+    handleDrawerOpen,
+    handleOpenSavedStories
   } = props;
 
   return (
@@ -22,6 +23,14 @@ const HackerBoxNavbar = props => {
           onClick={() => {
             makeNewsApiCall(null);
             handleCurrentlySelectedItem(null);
+          }}
+        />
+        <Button
+          className="bp3-minimal"
+          icon="bookmark"
+          text="Saved Stories"
+          onClick={() => {
+            handleOpenSavedStories();
           }}
         />
         <Button

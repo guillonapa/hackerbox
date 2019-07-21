@@ -12,7 +12,8 @@ const HackerBoxDrawer = props => {
     selectedTabId,
     handleSelectedTab,
     showPassword,
-    handleLockClick
+    handleLockClick,
+    handleLogInClick
   } = props;
 
   return (
@@ -36,6 +37,7 @@ const HackerBoxDrawer = props => {
               <LogIn
                 showPassword={showPassword}
                 handleLockClick={handleLockClick}
+                handleLogInClick={handleLogInClick}
               />
             }
           />
