@@ -124,7 +124,7 @@ class App extends React.Component {
 
   handleSaveArticle = (title, description, url, imageUrl, source) => {
     return () => {
-      axios.post(`${SERVER_URL}/add`, {
+      axios.post(`${SERVER_URL}/save`, {
         user: 'guillonapa',
         title,
         description,
@@ -138,9 +138,6 @@ class App extends React.Component {
   // handle the log in button
   handleLogInClick = () => {
     console.log('Log in button clicked...');
-    fetch(`${SERVER_URL}/getData`)
-      .then(data => data.json())
-      .then(res => console.log(res));
   };
 
   // handle the changing of tabs between sign-in/sign-up
@@ -149,7 +146,7 @@ class App extends React.Component {
   handleOpenSavedStories = () => {
     this.setState({ skeleton: 'bp3-skeleton', showSavedStories: true });
     axios
-      .get(`${SERVER_URL}/getData`, { params: { user: 'guillonapa' } })
+      .get(`${SERVER_URL}/saved-stories`, { params: { user: 'guillonapa' } })
       .then(res => {
         if (res.data.success) {
           this.setState({ savedStories: res.data.data, skeleton: '' });

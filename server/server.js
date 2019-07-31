@@ -19,8 +19,13 @@ const dbRoute = process.env.DB_ROUTE;
 const secretOrKey = process.env.KEY_OR_SECRET;
 const newsapikey = process.env.NEWS_API_KEY;
 
+// express app
 const app = express();
+
+// use cors
 app.use(cors());
+
+// express router
 const router = express.Router();
 
 // connects our back end code with the database
@@ -30,16 +35,19 @@ mongoose.connect(dbRoute, {
 
 // Passport middleware
 app.use(passport.initialize());
+
 // Passport config
 require('./config/passport')(passport);
 
+// mongodb database
 const db = mongoose.connection;
 
+// logging when connection open
 db.once('open', () => console.log('Connected to the database'));
 
+// logging on any error
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// (optional) only made for logging and
 // bodyParser, parses the request body to be a readable json format
 app.use(
   bodyParser.urlencoded({
@@ -47,14 +55,17 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+
+// (optional) only made for logging and
 app.use(logger('dev'));
 
-// this is our get method
-// this method fetches all available data in our database
-router.get('/getData', (req, res) => {
-  // console.log("Get Data!");
-  console.log(req.body);
+/*
+ * Gets the saved stories for the logged in user
+ * where the request's query is defined by
+ * { params: { user: 'user' } }
+ */
 
+router.get('/saved-stories', (req, res) => {
   SavedStories.find(
     {
       user: req.query.user
@@ -73,7 +84,10 @@ router.get('/getData', (req, res) => {
   );
 });
 
-router.post('/add', (req, res) => {
+/*
+ * Save a story for the logged in user
+ */
+router.post('/save', (req, res) => {
   const { title, description, url, imageUrl, source, user } = req.body;
   const story = new SavedStories();
   story.user = user;
@@ -95,6 +109,9 @@ router.post('/add', (req, res) => {
   });
 });
 
+/*
+ * Create an account for a new user
+ */
 router.post('/signup', (req, res) => {
   // Form validation
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -127,6 +144,9 @@ router.post('/signup', (req, res) => {
   });
 });
 
+/*
+ * Login a new user
+ */
 router.post('/login', (req, res) => {
   // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
@@ -183,7 +203,9 @@ router.post('/login', (req, res) => {
   });
 });
 
-// routes for News API requests
+/*
+ * Get stories from NEWS API
+ */
 router.get('/stories', (req, res) => {
   const { source, country, pageSize } = req.query;
   let url;
@@ -205,6 +227,9 @@ router.get('/stories', (req, res) => {
   });
 });
 
+/*
+ * Get news sources from NEWS API
+ */
 router.get('/sources', (req, res) => {
   const url = `https://newsapi.org/v2/sources?language=en&apiKey=${newsapikey}`;
   request(url, (error, response, body) => {
@@ -222,9 +247,6 @@ router.get('/sources', (req, res) => {
 
 // append /api for our http requests
 app.use('', router);
-
-// disable etag for now to avoid 304
-// app.disable('etag');
 
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
