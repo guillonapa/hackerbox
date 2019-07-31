@@ -1,5 +1,3 @@
-/* global Request fetch */
-
 import { Colors, Dialog, Classes } from '@blueprintjs/core';
 import Emoji from 'a11y-react-emoji';
 import axios from 'axios';
