@@ -64,7 +64,6 @@ app.use(logger('dev'));
  * where the request's query is defined by
  * { params: { user: 'user' } }
  */
-
 router.get('/saved-stories', (req, res) => {
   SavedStories.find(
     {
