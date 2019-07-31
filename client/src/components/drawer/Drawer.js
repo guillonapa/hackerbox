@@ -1,4 +1,4 @@
-import { Drawer, Classes, Tabs, Tab } from '@blueprintjs/core';
+import { Button, Classes, Drawer, Intent, Tabs, Tab } from '@blueprintjs/core';
 import LogIn from './Login';
 import Register from './Register';
 
@@ -13,8 +13,13 @@ const HackerBoxDrawer = props => {
     handleSelectedTab,
     showPassword,
     handleLockClick,
-    handleLogInClick
+    handleLogInClick,
+    handleLogOutClick,
+    logInDiv,
+    logOutDiv
   } = props;
+
+  const logOutDivStyle = `hb-log-in-button ${logOutDiv}`;
 
   return (
     <Drawer
@@ -25,24 +30,34 @@ const HackerBoxDrawer = props => {
       title="Your Dashboard"
     >
       <div className={Classes.DIALOG_BODY}>
-        <Tabs
-          id="auth-tabs"
-          selectedTabId={selectedTabId}
-          onChange={handleSelectedTab}
-        >
-          <Tab
-            id="log-in-tab"
-            title="Log in"
-            panel={
-              <LogIn
-                showPassword={showPassword}
-                handleLockClick={handleLockClick}
-                handleLogInClick={handleLogInClick}
-              />
-            }
+        <div className={logOutDivStyle}>
+          <Button
+            text="Log out"
+            intent={Intent.DANGER}
+            rightIcon="log-out"
+            onClick={handleLogOutClick}
           />
-          <Tab id="register-tab" title="Register" panel={<Register />} />
-        </Tabs>
+        </div>
+        <div className={logInDiv}>
+          <Tabs
+            id="auth-tabs"
+            selectedTabId={selectedTabId}
+            onChange={handleSelectedTab}
+          >
+            <Tab
+              id="log-in-tab"
+              title="Log in"
+              panel={
+                <LogIn
+                  showPassword={showPassword}
+                  handleLockClick={handleLockClick}
+                  handleLogInClick={handleLogInClick}
+                />
+              }
+            />
+            <Tab id="register-tab" title="Register" panel={<Register />} />
+          </Tabs>
+        </div>
       </div>
       <div className={Classes.DRAWER_FOOTER}>
         &copy; Guillermo Narvaez (2019)

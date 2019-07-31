@@ -19,9 +19,13 @@ const LogIn = props => {
 
   return (
     <div>
-      <InputGroup className="log-in" placeholder="Username" leftIcon="user" />
       <InputGroup
-        className="log-in"
+        className="log-margin"
+        placeholder="Username"
+        leftIcon="user"
+      />
+      <InputGroup
+        className="log-margin"
         leftIcon="key"
         placeholder="Password"
         rightElement={lockButton}
@@ -29,7 +33,7 @@ const LogIn = props => {
       />
       <div className="hb-log-in-button">
         <Button
-          className="log-in"
+          className="log-margin"
           text="Log in"
           intent={Intent.SUCCESS}
           rightIcon="log-in"

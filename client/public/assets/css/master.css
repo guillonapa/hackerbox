@@ -32,6 +32,14 @@
   display: none;
 }
 
-.log-in {
+.log-margin {
   margin-bottom: 15px;
+}
+
+.show-block {
+  display: block;
+}
+
+.show-flex {
+  display: flex;
 }

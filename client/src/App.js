@@ -63,7 +63,10 @@ class App extends React.Component {
       showPassword: false,
       selectedTab: 'log-in-tab',
       showSavedStories: false,
-      savedStories: []
+      savedStories: [],
+      loggedIn: false,
+      logInDiv: 'show-block',
+      logOutDiv: 'hide'
     };
   }
 
@@ -135,7 +138,15 @@ class App extends React.Component {
 
   // handle the log in button
   handleLogInClick = () => {
-    console.log('Log in button clicked...');
+    this.setState({ loggedIn: true, logInDiv: 'hide', logOutDiv: 'show-flex' });
+  };
+
+  handleLogOutClick = () => {
+    this.setState({
+      loggedIn: false,
+      logInDiv: 'show-block',
+      logOutDiv: 'hide'
+    });
   };
 
   // handle the changing of tabs between sign-in/sign-up
@@ -206,7 +217,10 @@ class App extends React.Component {
       showPassword,
       selectedTab,
       showSavedStories,
-      savedStories
+      savedStories,
+      loggedIn,
+      logInDiv,
+      logOutDiv
     } = this.state;
     return (
       <div className={theme} style={{ background: Colors.DARK_GRAY3 }}>
@@ -261,6 +275,10 @@ class App extends React.Component {
           selectedTab={selectedTab}
           handleChangeTab={this.handleChangeTab}
           handleLogInClick={this.handleLogInClick}
+          handleLogOutClick={this.handleLogOutClick}
+          loggedIn={loggedIn}
+          logInDiv={logInDiv}
+          logOutDiv={logOutDiv}
         />
       </div>
     );

@@ -20,12 +20,12 @@ const Register = props => {
   return (
     <div>
       <InputGroup
-        className="log-in"
+        className="log-margin"
         placeholder="Enter your email"
         leftIcon="user"
       />
       <InputGroup
-        className="log-in"
+        className="log-margin"
         leftIcon="key"
         placeholder="Enter a password"
         rightElement={lockButton}
@@ -33,7 +33,7 @@ const Register = props => {
       />
       <div className="hb-log-in-button">
         <Button
-          className="log-in"
+          className="log-margin"
           text="Create Account"
           intent={Intent.SUCCESS}
           rightIcon="new-person"
