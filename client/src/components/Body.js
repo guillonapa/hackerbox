@@ -1,5 +1,5 @@
-import Search from './Search';
-import Results from './Results';
+import Search from './main/Search';
+import Results from './main/Results';
 
 const React = require('react');
 

@@ -2,10 +2,10 @@ import { Colors, Dialog, Classes } from '@blueprintjs/core';
 import Emoji from 'a11y-react-emoji';
 import axios from 'axios';
 
-import Body from './sections/Body';
-import Footer from './sections/Footer';
-import HackerBoxNavbar from './sections/HackerBoxNavbar';
-import HackerBoxDrawer from './sections/drawer/HackerBoxDrawer';
+import Body from './components/Body';
+import Footer from './components/Footer';
+import HackerBoxNavbar from './components/Navbar';
+import HackerBoxDrawer from './components/drawer/Drawer';
 
 const React = require('react');
 // const NewsAPI = require('newsapi');

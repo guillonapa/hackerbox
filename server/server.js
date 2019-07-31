@@ -7,13 +7,13 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const request = require('request');
-const SavedStories = require('./savedStories');
-const User = require('./users');
-const validateRegisterInput = require('./registerValidation');
-const validateLoginInput = require('./loginValidation');
+const SavedStories = require('./models/savedStories');
+const User = require('./models/users');
+const validateRegisterInput = require('./validation/registerValidation');
+const validateLoginInput = require('./validation/loginValidation');
 
 // environmental variables
-require('./dotenv-config');
+require('./config/dotenv-config');
 const API_PORT = process.env.API_PORT;
 const dbRoute = process.env.DB_ROUTE;
 const secretOrKey = process.env.KEY_OR_SECRET;

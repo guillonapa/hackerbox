@@ -1,5 +1,5 @@
 import { Drawer, Classes, Tabs, Tab } from '@blueprintjs/core';
-import LogIn from './LogIn';
+import LogIn from './Login';
 import Register from './Register';
 
 const React = require('react');
