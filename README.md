@@ -1,25 +1,14 @@
 # Hacker Box
 
-Hacker Box is a web application that I'm building as an exercise to learn React.js and other web technologies. This is a work in progress. Checkout the site [here](https://hackerbox.herokuapp.com/)!
+Hacker Box is a web application to find articles from a selection of journalistic sources. The application can be used locally or online. If using locally, you can maintain a backup of all your saved articles metadata.
 
-For now you can drag cards around and you can read the "latest" and "top" stories as featured in Hacker News!
+![Hacker Box](docs/hackerbox.png)
 
-## Description
+## Online Version
 
-Hacker Box is a platform where all your hacker reading comes to a place. There's a ton of amazing blogs and sites, but it's hard to keep up with all the cool content. Hacker Box is a place where you can find and read awesome material, or save it for later reads!
+When using the [online version](https://hackerbox.herokuapp.com/), you can browse articles from a set of media outlets. However, at this moment you won't be able to save articles. To do this, use Hacker Box locally.
 
-We recommend checking out Hacker Box with your first cup of coffee in the morning. Cheers! ☕
+## Use Hacker Box Locally
 
-## Menu
+Instructions to use Hacker Box locally coming soon.
 
-![menu](docs/gifs/menu.gif)
-
-## Dragging Cards
-
-![dragging](docs/gifs/drag.gif)
-
-## Reading Articles
-
-![reading](docs/gifs/read.gif)
-
-Check [Hacker News](https://news.ycombinator.com/) by Y Combinator.

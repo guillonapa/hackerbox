@@ -1,7 +1,7 @@
 {
-  "name": "hacker-box",
+  "name": "hackerbox",
   "version": "1.0.0",
-  "description": "Hacker Box is a web application that I'm building as an exercise to learn React.js and other web technologies. This is a work in progress. Checkout the site [here](https://hackerbox.herokuapp.com/)!",
+  "description": "A web application to find articles from a selection of journalistic sources.",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -14,16 +14,17 @@
   "scripts": {
     "dev": "concurrently \"cd client && npm run dev\" \"cd server && npm run server\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd client && npm install && cd ../server && npm install"
+    "postinstall": "cd client && npm install && cd ../server && npm install",
+    "clearmodules": "rm -rf node_modules && cd client && rm -rf node_modules && cd ../server && rm -rf node_modules"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guillonapa/React-ion.git"
+    "url": "git+https://github.com/guillonapa/hackerbox.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/guillonapa/React-ion/issues"
+    "url": "https://github.com/guillonapa/hackerbox/issues"
   },
-  "homepage": "https://github.com/guillonapa/React-ion#readme"
+  "homepage": "https://github.com/guillonapa/hackerbox#readme"
 }
