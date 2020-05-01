@@ -30,7 +30,7 @@ const router = express.Router();
 
 // connects our back end code with the database
 mongoose.connect(dbRoute, {
-  useNewUrlParser: true
+    useNewUrlParser: true
 });
 
 // Passport middleware
@@ -50,9 +50,9 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // bodyParser, parses the request body to be a readable json format
 app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
+    bodyParser.urlencoded({
+        extended: false
+    })
 );
 app.use(bodyParser.json());
 
@@ -65,183 +65,183 @@ app.use(logger('dev'));
  * { params: { user: 'user' } }
  */
 router.get('/saved-stories', (req, res) => {
-  SavedStories.find(
-    {
-      user: req.query.user
-    },
-    (err, data) => {
-      if (err)
-        return res.json({
-          success: false,
-          error: err
-        });
-      return res.json({
-        success: true,
-        data
-      });
-    }
-  );
+    SavedStories.find(
+        {
+            user: req.query.user
+        },
+        (err, data) => {
+            if (err)
+                return res.json({
+                    success: false,
+                    error: err
+                });
+            return res.json({
+                success: true,
+                data
+            });
+        }
+    );
 });
 
 /*
  * Save a story for the logged in user
  */
 router.post('/save', (req, res) => {
-  const { title, description, url, imageUrl, source, user } = req.body;
-  const story = new SavedStories();
-  story.user = user;
-  story.title = title;
-  story.description = description;
-  story.link = url;
-  story.linkToImage = imageUrl;
-  story.source = source;
+    const { title, description, url, imageUrl, source, user } = req.body;
+    const story = new SavedStories();
+    story.user = user;
+    story.title = title;
+    story.description = description;
+    story.link = url;
+    story.linkToImage = imageUrl;
+    story.source = source;
 
-  story.save(err => {
-    if (err)
-      return res.json({
-        success: false,
-        error: err
-      });
-    return res.json({
-      success: true
+    story.save(err => {
+        if (err)
+            return res.json({
+                success: false,
+                error: err
+            });
+        return res.json({
+            success: true
+        });
     });
-  });
 });
 
 /*
  * Create an account for a new user
  */
 router.post('/signup', (req, res) => {
-  // Form validation
-  const { errors, isValid } = validateRegisterInput(req.body);
+    // Form validation
+    const { errors, isValid } = validateRegisterInput(req.body);
 
-  // Check validation
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
-
-  User.findOne({
-    email: req.body.username
-  }).then(user => {
-    if (!user) {
-      const newUser = new User({
-        username: req.body.username,
-        password: req.body.password
-      });
-      // Hash password before saving in database
-      bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newUser.password, salt, (innerErr, hash) => {
-          if (innerErr) throw innerErr;
-          newUser.password = hash;
-          newUser
-            .save()
-            .then(savedUser => res.json(savedUser))
-            .catch(caughtError => console.log(caughtError));
-        });
-      });
+    // Check validation
+    if (!isValid) {
+        return res.status(400).json(errors);
     }
-  });
+
+    User.findOne({
+        email: req.body.username
+    }).then(user => {
+        if (!user) {
+            const newUser = new User({
+                username: req.body.username,
+                password: req.body.password
+            });
+            // Hash password before saving in database
+            bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.hash(newUser.password, salt, (innerErr, hash) => {
+                    if (innerErr) throw innerErr;
+                    newUser.password = hash;
+                    newUser
+                        .save()
+                        .then(savedUser => res.json(savedUser))
+                        .catch(caughtError => console.log(caughtError));
+                });
+            });
+        }
+    });
 });
 
 /*
  * Login a new user
  */
 router.post('/login', (req, res) => {
-  // Form validation
-  const { errors, isValid } = validateLoginInput(req.body);
+    // Form validation
+    const { errors, isValid } = validateLoginInput(req.body);
 
-  // Check validation
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
-
-  const { email } = req.body;
-  const { password } = req.body;
-
-  // Find user by email
-  User.findOne({
-    email
-  }).then(user => {
-    // Check if user exists
-    if (!user) {
-      return res.status(404).json({
-        emailnotfound: 'Email not found'
-      });
+    // Check validation
+    if (!isValid) {
+        return res.status(400).json(errors);
     }
 
-    // Check password
-    bcrypt.compare(password, user.password).then(isMatch => {
-      if (isMatch) {
-        // User matched
-        // Create JWT Payload
-        const payload = {
-          id: user.id,
-          name: user.name
-        };
+    const { email } = req.body;
+    const { password } = req.body;
 
-        // Sign token
-        jwt.sign(
-          payload,
-          secretOrKey,
-          {
-            expiresIn: 31556926 // 1 year in seconds
-          },
-          (err, token) => {
-            res.json({
-              success: true,
-              token: `Bearer ${token}`
+    // Find user by email
+    User.findOne({
+        email
+    }).then(user => {
+        // Check if user exists
+        if (!user) {
+            return res.status(404).json({
+                emailnotfound: 'Email not found'
             });
-          }
-        );
-      } else {
-        return res.status(400).json({
-          passwordincorrect: 'Password incorrect'
+        }
+
+        // Check password
+        bcrypt.compare(password, user.password).then(isMatch => {
+            if (isMatch) {
+                // User matched
+                // Create JWT Payload
+                const payload = {
+                    id: user.id,
+                    name: user.name
+                };
+
+                // Sign token
+                jwt.sign(
+                    payload,
+                    secretOrKey,
+                    {
+                        expiresIn: 31556926 // 1 year in seconds
+                    },
+                    (err, token) => {
+                        res.json({
+                            success: true,
+                            token: `Bearer ${token}`
+                        });
+                    }
+                );
+            } else {
+                return res.status(400).json({
+                    passwordincorrect: 'Password incorrect'
+                });
+            }
         });
-      }
     });
-  });
 });
 
 /*
  * Get stories from NEWS API
  */
 router.get('/stories', (req, res) => {
-  const { source, country, pageSize } = req.query;
-  let url;
-  if (source === null || source === '') {
-    url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${newsapikey}&pageSize=${pageSize}`;
-  } else {
-    url = `https://newsapi.org/v2/top-headlines?sources=${source}&apiKey=${newsapikey}&pageSize=${pageSize}`;
-  }
-  request(url, (error, response, body) => {
-    if (error) {
-      return res.json({
-        success: false
-      });
+    const { source, country, pageSize } = req.query;
+    let url;
+    if (source === null || source === '') {
+        url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${newsapikey}&pageSize=${pageSize}`;
+    } else {
+        url = `https://newsapi.org/v2/top-headlines?sources=${source}&apiKey=${newsapikey}&pageSize=${pageSize}`;
     }
-    return res.json({
-      success: true,
-      stories: JSON.parse(body).articles
+    request(url, (error, response, body) => {
+        if (error) {
+            return res.json({
+                success: false
+            });
+        }
+        return res.json({
+            success: true,
+            stories: JSON.parse(body).articles
+        });
     });
-  });
 });
 
 /*
  * Get news sources from NEWS API
  */
 router.get('/sources', (req, res) => {
-  const url = `https://newsapi.org/v2/sources?language=en&apiKey=${newsapikey}`;
-  request(url, (error, response, body) => {
-    if (error) {
-      return res.json({
-        success: false
-      });
-    }
-    return res.json({
-      success: true,
-      sources: JSON.parse(body).sources
+    const url = `https://newsapi.org/v2/sources?language=en&apiKey=${newsapikey}`;
+    request(url, (error, response, body) => {
+        if (error) {
+            return res.json({
+                success: false
+            });
+        }
+        return res.json({
+            success: true,
+            sources: JSON.parse(body).sources
+        });
     });
-  });
 });
 
 // append /api for our http requests
