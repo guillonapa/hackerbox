@@ -1,0 +1,47 @@
+import Search from './main/Search';
+import Results from './main/Results';
+
+const React = require('react');
+
+const Body = props => {
+    const {
+        skeleton,
+        articles,
+        makeNewsApiCall,
+        listOfSources,
+        includeImages,
+        currentlySelectedItem,
+        handleIncludeImages,
+        handleCurrentlySelectedItem,
+        handleOpenArticle,
+        handleSaveArticle,
+        showSavedStories,
+        savedStories,
+        appIsLocal
+    } = props;
+    
+    return (
+        <div style={{ padding: '30px' }}>
+            <Search
+                makeNewsApiCall={makeNewsApiCall}
+                listOfSources={listOfSources}
+                includeImages={includeImages}
+                currentlySelectedItem={currentlySelectedItem}
+                handleIncludeImages={handleIncludeImages}
+                handleCurrentlySelectedItem={handleCurrentlySelectedItem}
+            />
+            <Results
+                skeleton={skeleton}
+                articles={articles}
+                includeImages={includeImages}
+                handleOpenArticle={handleOpenArticle}
+                handleSaveArticle={handleSaveArticle}
+                showSavedStories={showSavedStories}
+                savedStories={savedStories}
+                appIsLocal={appIsLocal}
+            />
+        </div>
+    );
+};
+
+export default Body;
