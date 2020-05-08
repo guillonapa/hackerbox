@@ -28,6 +28,12 @@ jobs:
         REACT_APP_NEWS_API_KEY: ${{ secrets.REACT_APP_NEWS_API_KEY }}
         TESTING_SECRET: ${{ secrets.TESTING_SECRET }}
     - run: echo $TESTING_SECRET
+      env:
+        REACT_APP_NEWS_API_KEY: ${{ secrets.REACT_APP_NEWS_API_KEY }}
+        TESTING_SECRET: ${{ secrets.TESTING_SECRET }}
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+      env:
+        REACT_APP_NEWS_API_KEY: ${{ secrets.REACT_APP_NEWS_API_KEY }}
+        TESTING_SECRET: ${{ secrets.TESTING_SECRET }}
