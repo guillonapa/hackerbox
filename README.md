@@ -2,6 +2,8 @@
 
 ![Node.js CI](https://github.com/guillonapa/hackerbox/workflows/Node.js%20CI/badge.svg?branch=minimal-online)
 
+This branch (`minimal-local`) represents a version of Hackerbox that can be installed and run locally. When running locally, articles' metadata can be saved to the file system for later reading.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
