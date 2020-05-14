@@ -52,7 +52,7 @@ const Results = props => {
                         {' '}
                         <div className="card-body">
                             <div style={{ marginRight: '10px' }} className={includeImages ? skeleton : 'hide'}>
-                                <img className="card-image" alt="article title" src={story.linkToImage === null ? 'assets/images/gradient.png' : story.linkToImage}/>
+                                <img className="card-image" alt="article title" src={story.imageUrl === null ? 'assets/images/gradient.png' : story.imageUrl}/>
                             </div>
                             <div style={{ width: '100%' }}>
                                 <div className="card-header">
@@ -61,7 +61,7 @@ const Results = props => {
                                     </h3>
                                     <Popover minimal={true} position={Position.LEFT_TOP} enforceFocus={false}>
                                         <Button style={{ margin: '5px' }} className="bp3-minimal" icon="more"/>
-                                        {menu(story.title, story.description, story.link, story.linkToImage, story.source)}
+                                        {menu(story.title, story.description, story.link, story.imageUrl, story.source)}
                                     </Popover>
                                 </div>
                                 <p className={skeleton} style={{ marginRight: '40px' }}>

@@ -102,7 +102,7 @@ class App extends React.Component {
                     handleDrawerOpen={this.handleDrawerOpen}
                     makeNewsApiCall={this.makeNewsApiCall}
                     handleCurrentlySelectedItem={this.handleCurrentlySelectedItem}
-                    handleOpenSavedStories={this.handleOpenSavedStories}
+                    handleOpenSavedStories={this.handleOpenSavedStories.bind(this)}
                     appIsLocal={appIsLocal}
                 />
 

@@ -7,7 +7,6 @@ const HackerBoxNavbar = props => {
         makeNewsApiCall,
         handleCurrentlySelectedItem,
         handleOpen,
-        handleDrawerOpen,
         handleOpenSavedStories,
         appIsLocal
     } = props;
@@ -45,7 +44,7 @@ const HackerBoxNavbar = props => {
                     }}
                 />
             </Navbar.Group>
-            {appIsLocal ?
+            {/* {appIsLocal ?
                 <Navbar.Group align={Alignment.RIGHT}>
                     <Button
                         className="bp3-minimal"
@@ -53,7 +52,7 @@ const HackerBoxNavbar = props => {
                         onClick={() => handleDrawerOpen()}
                     />
                 </Navbar.Group>
-                : ""}
+                : ""} */}
         </Navbar>
     );
 };

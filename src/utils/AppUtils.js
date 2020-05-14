@@ -1,10 +1,13 @@
 import Emoji from 'a11y-react-emoji';
+import axios from 'axios';
 
 const React = require('react');
 const NewsAPI = require('newsapi');
 
 const pageSize = 30;
 const newsapi = new NewsAPI(process.env.REACT_APP_NEWS_API_KEY);
+const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+const IS_LOCAL = process.env.REACT_APP_IS_LOCAL;
 
 export async function componentDidMount() {
     try {
@@ -45,11 +48,30 @@ export async function makeNewsApiCall(source, country) {
 }
 
 export async function handleOpenSavedStories() {
+    try{
+        const response = await axios.get(`${SERVER_URL}/api/stories`);
+        if (response.data.success) {
+            return { savedStories: response.data.data.saved, skeleton: '' };
+        }
+    } catch (err) {
+        console.log(err);
+    }
     return {};
 };
 
 export function handleSaveArticle(title, description, url, imageUrl, source) {
-    return () => {}
+    return () => {
+        axios.post(
+            `${SERVER_URL}/api/save`,
+            {
+                title,
+                description,
+                url,
+                imageUrl,
+                source
+            }
+        );
+    };
 };
 
 export function handleOpenArticle(link) {
@@ -105,6 +127,6 @@ export function initialState() {
         loggedIn: false,
         logInDiv: 'show-block',
         logOutDiv: 'hide',
-        appIsLocal: false
+        appIsLocal: IS_LOCAL
     };
 }

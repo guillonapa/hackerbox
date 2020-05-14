@@ -10,14 +10,21 @@
     "@testing-library/user-event": "^7.2.1",
     "a11y-react-emoji": "^1.1.2",
     "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
     "core-js": "^2.6.11",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "newsapi": "^2.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"node localbox/setup && node localbox/endpoint\" \"react-scripts start\"",
+    "start-localbox": "node localbox/setup && node localbox/endpoint",
+    "start-frontend": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
