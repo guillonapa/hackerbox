@@ -127,6 +127,6 @@ export function initialState() {
         loggedIn: false,
         logInDiv: 'show-block',
         logOutDiv: 'hide',
-        appIsLocal: IS_LOCAL
+        appIsLocal: IS_LOCAL === 'true'
     };
 }
