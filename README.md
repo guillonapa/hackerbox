@@ -1,14 +1,15 @@
-# Hacker Box
+# Hackerbox
 
-Hacker Box is a web application to find articles from a selection of journalistic sources. The application can be used locally or online. If using locally, you can maintain a backup of all your saved articles metadata.
+![Node.js CI](https://github.com/guillonapa/hackerbox/workflows/Node.js%20CI/badge.svg?branch=minimal-online)
 
-![Hacker Box](docs/hackerbox.png)
+Hackerbox is a web application that uses the NewsApi API to browse articles from thousands of sources. 
+
+The application can be either deployed to a server or run locally. When run locally, you can save articles to personalized lists for further reference.
 
 ## Online Version
 
-When using the [online version](https://hackerbox.herokuapp.com/), you can browse articles from a set of media outlets. However, at this moment you won't be able to save articles. To do this, use Hacker Box locally.
+You can [browse Hackerbox online](https://hackerbox.herokuapp.com/), but to use all the features you will need to run it locally as described below.
 
-## Use Hacker Box Locally
+## Use Hackerbox Locally
 
-Instructions to use Hacker Box locally coming soon.
-
+TBD.
