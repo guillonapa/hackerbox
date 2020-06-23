@@ -2,7 +2,7 @@ import Emoji from 'a11y-react-emoji';
 import axios from 'axios';
 
 const React = require('react');
-const NewsAPI = require('newsapi');
+const NewsAPI = require('./NewsApi');
 
 const pageSize = 30;
 const newsapi = new NewsAPI(process.env.REACT_APP_NEWS_API_KEY);
