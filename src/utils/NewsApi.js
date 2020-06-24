@@ -113,13 +113,16 @@ function getDataFromWeb(url, options, apiKey, cb) {
   console.log("XXXXXXX");
   let useCallback = 'function' === typeof cb;
   const reqOptions = { headers: {} };
+  reqOptions.headers['Access-Control-Allow-Headers'] = 'Access-Control-Allow-Headers, X-No-Cache, X-Api-Key, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin';
   reqOptions.headers['Access-Control-Allow-Origin'] = '*';
+  reqOptions.headers['Access-Control-Allow-Methods'] = 'GET,HEAD,OPTIONS,POST,PUT';
   if (apiKey) {
     reqOptions.headers['X-Api-Key'] = apiKey;
   }
   if (options && options.noCache === true) {
     reqOptions.headers['X-No-Cache'] = 'true';
   }
+  console.log(reqOptions);
   return fetch(url, reqOptions).then(res => Promise.all([res, res.json()])).then(([res, body]) => {
     if (body.status === 'error') throw new NewsAPIError(body);
     // 'showHeaders' option can be used for clients to debug response headers
