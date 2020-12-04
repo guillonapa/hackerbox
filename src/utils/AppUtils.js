@@ -49,9 +49,9 @@ export async function makeNewsApiCall(source, country) {
 
 export async function handleOpenSavedStories() {
     try{
-        const response = await axios.get(`${SERVER_URL}/api/stories`);
+        const response = await axios.get(`${SERVER_URL}/stories`);
         if (response.data.success) {
-            return { savedStories: response.data.data.saved, skeleton: '' };
+            return { savedStories: response.data.data, skeleton: '' };
         }
     } catch (err) {
         console.log(err);
@@ -62,7 +62,7 @@ export async function handleOpenSavedStories() {
 export function handleSaveArticle(title, description, url, imageUrl, source) {
     return () => {
         axios.post(
-            `${SERVER_URL}/api/save`,
+            `${SERVER_URL}/save`,
             {
                 title,
                 description,
