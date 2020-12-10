@@ -47,21 +47,22 @@ const Results = props => {
         return (
             <Card interactive={false} elevation={Elevation.TWO}>
                 <h1>Saved Stories</h1>
+                {/* fields coming back from the db are all lowercase... hence 'imageurl' */}
                 {savedStories.map((story, i) => (
                     <Card style={{ marginBottom: '15px' }} interactive={false} elevation={Elevation.TWO} key={1000 * Math.random()}>
                         {' '}
                         <div className="card-body">
                             <div style={{ marginRight: '10px' }} className={includeImages ? skeleton : 'hide'}>
-                                <img className="card-image" alt="article title" src={story.imageUrl === null ? 'assets/images/gradient.png' : story.imageUrl}/>
+                                <img className="card-image" alt="article title" src={story.imageurl === null ? 'assets/images/gradient.png' : story.imageurl}/>
                             </div>
                             <div style={{ width: '100%' }}>
                                 <div className="card-header">
                                     <h3 className={skeleton}>
-                                        <a href={story.link} target="_blank" rel="noopener noreferrer"> {story.title}</a>
+                                        <a href={story.url} target="_blank" rel="noopener noreferrer"> {story.title}</a>
                                     </h3>
                                     <Popover minimal={true} position={Position.LEFT_TOP} enforceFocus={false}>
                                         <Button style={{ margin: '5px' }} className="bp3-minimal" icon="more"/>
-                                        {menu(story.title, story.description, story.link, story.imageUrl, story.source)}
+                                        {menu(story.title, story.description, story.url, story.imageurl, story.source)}
                                     </Popover>
                                 </div>
                                 <p className={skeleton} style={{ marginRight: '40px' }}>

@@ -14,23 +14,22 @@
     "concurrently": "^5.2.0",
     "core-js": "^2.6.11",
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "newsapi": "^2.4.0",
-    "node-fetch": "^2.6.0",
-    "querystring": "^0.2.0",
+    "pg": "^8.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "^3.4.4"
   },
   "scripts": {
     "start": "concurrently \"node localbox/setup && node localbox/endpoint\" \"react-scripts start\"",
-    "start-localbox": "node localbox/setup && node localbox/endpoint",
+    "start-localbox": "nodemon -r dotenv/config localbox/db.js",
     "start-frontend": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3080",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -45,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.6"
   }
 }
