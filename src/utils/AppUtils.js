@@ -79,14 +79,11 @@ export function helpMessage() {
     return (
         <div>
             <p>
-                Hackerbox is a platform where all your hacker reading comes to a
-                place. There&apos;s a ton of amazing blogs and sites, but
-                it&apos;s hard to keep up with all the cool content. Hacker Box is
-                a place where you can find and read awesome material, or save it
-                for later reads!
+                Hackerbox is a platform where your news reading happens. There&apos;s a lot of amazing blogs and sites out there, but it&apos;s hard to keep up with all 
+                the content. Hackerbox is a place where you can find and read articles from a myriad of sources, or save them for later reads. Enjoy!
             </p>
             <p>
-                We recommend checking out Hacker Box with your first cup of coffee in the morning. Cheers! <Emoji symbol="☕" />
+                Try Hackerbox with your first <Emoji symbol="☕" /> in the morning.
             </p>
         </div>
     );

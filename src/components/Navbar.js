@@ -15,7 +15,7 @@ const HackerBoxNavbar = props => {
     return (
         <Navbar>
             <Navbar.Group align={Alignment.LEFT}>
-                <Navbar.Heading>HackerBox</Navbar.Heading>
+                <Navbar.Heading>Hackerbox</Navbar.Heading>
                 <Navbar.Divider />
                 <Button
                     className="bp3-minimal"
