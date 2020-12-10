@@ -2,21 +2,6 @@
 # prefix for info messages
 ECHO_PREFIX := 🔧
 
-# heroku deployment
-# heroku-login:
-# 	heroku login
-# 	heroku container:login
-
-# heroku-deploy:
-# 	heroku container:push web --app $(HEROKU_APP_NAME)
-# 	heroku container:release web --app $(HEROKU_APP_NAME)
-
-# heroku-logs:
-# 	heroku logs --tail --app $(HEROKU_APP_NAME)
-
-# heroku-db-create:
-# 	heroku pg:psql --app $(HEROKU_APP_NAME) < backend/db/schema.sql
-
 # installs dependencies
 init:
 	@echo "$(ECHO_PREFIX) Installing dependencies..."
