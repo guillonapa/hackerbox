@@ -16,7 +16,7 @@ console.log("Database URL:", connectionString);
 const ssl = !ENV.LOCAL_HACKERBOX ? { rejectUnauthorized: false } : false;
 console.log("SSL for DB Connection:", ssl);
 
-const newsapi = new NewsAPI(process.env.REACT_APP_NEWS_API_KEY);
+const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 const pageSize = 30;
 
 // configure db pool
