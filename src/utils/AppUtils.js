@@ -6,8 +6,9 @@ const NewsAPI = require('newsapi');
 
 const pageSize = 30;
 const newsapi = new NewsAPI(process.env.REACT_APP_NEWS_API_KEY);
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
-const IS_LOCAL = process.env.REACT_APP_IS_LOCAL;
+const IS_LOCAL = process.env.LOCAL_HACKERBOX;
+
+const axiosInstance = axios.create();
 
 export async function componentDidMount() {
     try {
@@ -49,7 +50,7 @@ export async function makeNewsApiCall(source, country) {
 
 export async function handleOpenSavedStories() {
     try{
-        const response = await axios.get(`${SERVER_URL}/stories`);
+        const response = await axiosInstance.get(`/stories`);
         if (response.data.success) {
             return { savedStories: response.data.data, skeleton: '' };
         }
@@ -61,8 +62,8 @@ export async function handleOpenSavedStories() {
 
 export function handleSaveArticle(title, description, url, imageUrl, source) {
     return () => {
-        axios.post(
-            `${SERVER_URL}/save`,
+        axiosInstance.post(
+            `/save`,
             {
                 title,
                 description,
@@ -127,6 +128,6 @@ export function initialState() {
         loggedIn: false,
         logInDiv: 'show-block',
         logOutDiv: 'hide',
-        appIsLocal: IS_LOCAL === 'true'
+        appIsLocal: true
     };
 }

@@ -36,7 +36,7 @@ app.use(
     })
 );
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '../build')));
 
 /**
  * Get the secret person for the specific person and event based on the
@@ -44,6 +44,7 @@ app.use(express.static(path.join(__dirname, '../client/build')));
  */
 app.get('/stories', async (req, res) => {
     try {
+        console.log('stories endpoint has been hit');
         // get the person who's key is the same as the one for the person's matched key
         const result = await query(`SELECT * FROM stories`);
         // make sure the a single row is returned
@@ -79,7 +80,7 @@ app.post('/save', async (req, res) => {
 
 // Anything that doesn't match the above, send back the index.html file
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+    res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
 // get a port for the app to listen at
