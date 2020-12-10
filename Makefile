@@ -1,6 +1,6 @@
 #!make
 # prefix for info messages
-ECHO_PREFIX := >>>
+ECHO_PREFIX := 🔧
 
 # heroku deployment
 # heroku-login:
@@ -53,18 +53,23 @@ local-frontend:
 	npm run start-frontend
 
 # run app in local container
-# docker-start:
-# 	@echo "$(ECHO_PREFIX) Starting Docker container..."
-# 	docker-compose up
+docker-start:
+	@echo "$(ECHO_PREFIX) Starting Docker container..."
+	docker-compose up
 
 # stops the app's container
-# docker-stop:
-# 	@echo "$(ECHO_PREFIX) Stopping Docker container..."
-# 	docker-compose stop
-# 	@echo "$(ECHO_PREFIX) Removing Docker container..."
-# 	docker-compose rm -f
+docker-stop:
+	@echo "$(ECHO_PREFIX) Stopping Docker container..."
+	docker-compose stop
+	@echo "$(ECHO_PREFIX) Removing Docker container..."
+	docker-compose rm -f
 
 # removes the docker image
-# docker-clean: docker-stop
-# 	@echo "$(ECHO_PREFIX) Removing Docker image..."
-# 	docker-compose down --rmi all
+docker-clean: docker-stop
+	@echo "$(ECHO_PREFIX) Removing Docker image..."
+	docker-compose down --rmi all
+
+# build the docker image again
+docker-build: docker-stop
+	@echo "$(ECHO_PREFIX) Building Docker image..."
+	docker-compose build
