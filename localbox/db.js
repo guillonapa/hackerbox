@@ -84,7 +84,7 @@ app.get('*', (req, res) => {
 });
 
 // get a port for the app to listen at
-const port = ENV.API_PORT || 3080;
+const port = ENV.PORT || 3080;
 
 // start listening for rest calls
 app.listen(port, () => {
