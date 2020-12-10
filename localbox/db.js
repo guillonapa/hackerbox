@@ -125,7 +125,7 @@ app.get('/news/:country/*?', async (req, res) => {
  */
 app.post('/save', async (req, res) => {
     try {
-        const { title, description, url, imageUrl, source } = req.body
+        const { title, description, url, imageUrl, source } = req.body;
 
         // add event to events table
         await query('INSERT INTO stories (title, description, url, imageUrl, source) VALUES ($1, $2, $3, $4, $5)', [title, description, url, imageUrl, source]);
@@ -135,6 +135,24 @@ app.post('/save', async (req, res) => {
         logger.info(err)
         res.send('400');
     }
+});
+
+/**
+ * Route to log messages coming from the React app.
+ */
+app.post('/log', (req, res) => {
+    const { message } = req.body;
+    logger.info(`[React log]: ${message}`);
+    res.send('200');
+});
+
+/**
+ * Route to log messages coming from the React app.
+ */
+app.post('/debug', (req, res) => {
+    const { message } = req.body;
+    logger.debug(`[React log]: ${message}`);
+    res.send('200');
 });
 
 // Anything that doesn't match the above, send back the index.html file
