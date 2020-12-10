@@ -2,12 +2,8 @@ import Emoji from 'a11y-react-emoji';
 import axios from 'axios';
 
 const React = require('react');
-// const NewsAPI = require('../../localbox/NewsApi');
 
-// const pageSize = 30;
-// const newsapi = new NewsAPI(process.env.REACT_APP_NEWS_API_KEY);
-// const IS_LOCAL = process.env.LOCAL_HACKERBOX;
-
+// axios instance to call on backend
 const axiosInstance = axios.create();
 
 export async function componentDidMount() {
@@ -17,12 +13,6 @@ export async function componentDidMount() {
         if (response.data.success) {
             return { listOfSources: response.data.data.listOfSources };
         }
-        // const response = await newsapi.v2.sources({ language: "en" });
-        // if (response.status === 'ok') {
-        //     return {
-        //         listOfSources: response.sources
-        //     };
-        // }
     } catch (err) {
         console.log(err);
     }
@@ -35,22 +25,6 @@ export async function makeNewsApiCall(source, country) {
         if (response.data.success) {
             return { source: response.data.data.source, articles: response.data.data.articles, skeleton: '', showSavedStories: false }
         }
-        // let options;
-        // // call the API and get stories for default
-        // if (source === null || source === "") {
-        //   options = { country, pageSize };
-        // } else {
-        //   options = { sources: [source], pageSize }
-        // }
-        // const response = await newsapi.v2.topHeadlines(options);
-        // if (response.status === 'ok') {
-        //     return {
-        //         source,
-        //         articles: response.articles,
-        //         skeleton: '',
-        //         showSavedStories: false
-        //     };
-        // }
     } catch (err) {
         console.log(err);
     }

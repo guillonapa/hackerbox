@@ -3,23 +3,30 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const Pool = require('pg').Pool;
+const pino = require('pino');
+const expressPino = require('express-pino-logger');
 const NewsAPI = require('./NewsApi');
 
 // environment
-const ENV = process.env;
+const env = process.env;
+
+// logger
+const logger = pino({ level: env.LOG_LEVEL || 'info' });
+const expressLogger = expressPino({ logger });
 
 // get the database url to connect to
-const connectionString = !ENV.DATABASE_URL ? `postgresql://${ENV.USER}@localhost:5432/${ENV.DB_NAME}` : ENV.DATABASE_URL;
-console.log("Database URL:", connectionString);
+const connectionString = !env.DATABASE_URL ? `postgresql://${env.USER}@localhost:5432/${env.DB_NAME}` : env.DATABASE_URL;
+logger.info(`Database URL: ${connectionString}`);
 
 // get ssl configuration
-const ssl = !ENV.LOCAL_HACKERBOX ? { rejectUnauthorized: false } : false;
-console.log("SSL for DB Connection:", ssl);
+const ssl = !env.LOCAL_HACKERBOX ? { rejectUnauthorized: false } : false;
+logger.info(`SSL for DB Connection: ${ssl}`);
 
+// newsapi config
 const newsapi = new NewsAPI(process.env.NEWS_API_KEY);
 const pageSize = 30;
 
-// configure db pool
+// configure pg db pool
 const pool = new Pool({
     connectionString,
     ssl
@@ -32,7 +39,6 @@ function query(text, params) {
 
 // the express api app
 const app = express();
-
 app.use(cors());
 app.use(
     bodyParser.urlencoded({
@@ -41,6 +47,7 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../build')));
+app.use(expressLogger);
 
 /**
  * Get the secret person for the specific person and event based on the
@@ -57,7 +64,7 @@ app.get('/stories', async (req, res) => {
             data: rows
         });
     } catch (err) {
-        console.log(err);
+        logger.info(err);
         res.send("An internal error has occurred. Please contact the administrator for further help.");
     }
 });
@@ -74,27 +81,27 @@ app.get('/home', async (req, res) => {
             });
         }
     } catch (err) {
-        console.log(err);
+        logger.info(err);
         res.send("An internal error has occurred. Please contact the administrator for further help.");
     }
 });
 
 app.get('/news/:country/*?', async (req, res) => {
-    console.log('params...', req.params);
+    logger.info(`Params for '/news/:country/*?': ${req.params}`);
     const { country } = req.params;
     const source = req.params['0'];
-    console.log('The country:', country);
-    console.log('The source:', source);
+    logger.info(`The country: ${country}`);
+    logger.info(`The source: ${source}`);
 
     try {
         let options;
         // call the API and get stories for default
-        if (source === null || source === "" || !source) {
+        if (source === null || source === undefined || source === "") {
           options = { country, pageSize };
         } else {
           options = { sources: [source], pageSize }
         }
-        console.log('The options:', options);
+        logger.info(`The options: ${options}`);
         const response = await newsapi.v2.topHeadlines(options);
         if (response.status === 'ok') {
             return res.json({
@@ -106,7 +113,7 @@ app.get('/news/:country/*?', async (req, res) => {
             });
         }
     } catch (err) {
-        console.log(err);
+        logger.info(err);
         res.send("An internal error has occurred. Please contact the administrator for further help.");
     }
 });
@@ -125,7 +132,7 @@ app.post('/save', async (req, res) => {
         // return the key of the event
         res.send('200');
     } catch (err) {
-        console.log(err)
+        logger.info(err)
         res.send('400');
     }
 });
@@ -136,9 +143,9 @@ app.get('*', (req, res) => {
 });
 
 // get a port for the app to listen at
-const port = ENV.PORT || 3080;
+const port = env.PORT || 3080;
 
 // start listening for rest calls
 app.listen(port, () => {
-    console.log(`App running on port ${port}.`)
+    logger.info(`App running on port ${port}.`)
 });
