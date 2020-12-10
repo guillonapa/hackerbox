@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const Pool = require('pg').Pool;
+const NewsAPI = require('./NewsApi');
 
 // environment
 const ENV = process.env;
@@ -14,6 +15,9 @@ console.log("Database URL:", connectionString);
 // get ssl configuration
 const ssl = !ENV.LOCAL_HACKERBOX ? { rejectUnauthorized: false } : false;
 console.log("SSL for DB Connection:", ssl);
+
+const newsapi = new NewsAPI(process.env.REACT_APP_NEWS_API_KEY);
+const pageSize = 30;
 
 // configure db pool
 const pool = new Pool({
@@ -44,7 +48,6 @@ app.use(express.static(path.join(__dirname, '../build')));
  */
 app.get('/stories', async (req, res) => {
     try {
-        console.log('stories endpoint has been hit');
         // get the person who's key is the same as the one for the person's matched key
         const result = await query(`SELECT * FROM stories`);
         // make sure the a single row is returned
@@ -53,6 +56,55 @@ app.get('/stories', async (req, res) => {
             success: true,
             data: rows
         });
+    } catch (err) {
+        console.log(err);
+        res.send("An internal error has occurred. Please contact the administrator for further help.");
+    }
+});
+
+app.get('/home', async (req, res) => {
+    try {
+        const response = await newsapi.v2.sources({ language: "en" });
+        if (response.status === 'ok') {
+            return res.json({
+                success: true,
+                data: {
+                    listOfSources: response.sources
+                }
+            });
+        }
+    } catch (err) {
+        console.log(err);
+        res.send("An internal error has occurred. Please contact the administrator for further help.");
+    }
+});
+
+app.get('/news/:country/*?', async (req, res) => {
+    console.log('params...', req.params);
+    const { country } = req.params;
+    const source = req.params['0'];
+    console.log('The country:', country);
+    console.log('The source:', source);
+
+    try {
+        let options;
+        // call the API and get stories for default
+        if (source === null || source === "" || !source) {
+          options = { country, pageSize };
+        } else {
+          options = { sources: [source], pageSize }
+        }
+        console.log('The options:', options);
+        const response = await newsapi.v2.topHeadlines(options);
+        if (response.status === 'ok') {
+            return res.json({
+                success: true,
+                data: {
+                    source,
+                    articles: response.articles
+                }
+            });
+        }
     } catch (err) {
         console.log(err);
         res.send("An internal error has occurred. Please contact the administrator for further help.");

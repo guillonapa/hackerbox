@@ -110,7 +110,6 @@ function createUrlFromEndpointAndOptions (endpoint, options) {
  * @return {Promise<Buffer>} A Promise containing a Buffer
  */
 function getDataFromWeb(url, options, apiKey, cb) {
-  console.log("XXXXXXX");
   let useCallback = 'function' === typeof cb;
   const reqOptions = { headers: {} };
   reqOptions.headers['Access-Control-Allow-Headers'] = 'Access-Control-Allow-Headers, X-No-Cache, X-Api-Key, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin';
