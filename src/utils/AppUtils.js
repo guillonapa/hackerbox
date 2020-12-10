@@ -21,7 +21,7 @@ export async function componentDidMount() {
 
 export async function makeNewsApiCall(source, country) {
     try {
-        const response = await axiosInstance.get(`/news/${country}/${source}`);
+        const response = await axiosInstance.get(`/news/${country}${source === null ? '' : `/${source}`}`);
         if (response.data.success) {
             return { source: response.data.data.source, articles: response.data.data.articles, skeleton: '', showSavedStories: false }
         }
