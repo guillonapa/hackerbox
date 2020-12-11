@@ -1,4 +1,4 @@
-import { Button, Classes, Drawer, Intent, Tabs, Tab } from '@blueprintjs/core';
+import { Button, Classes, Colors, Drawer, Intent, Tabs, Tab } from '@blueprintjs/core';
 import LogIn from './Login';
 import Register from './Register';
 import preval from 'preval.macro';
