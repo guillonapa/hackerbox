@@ -19,8 +19,7 @@ const Body = props => {
         handleDeleteArticle,
         handleRemoveStoryError,
         showSavedStories,
-        savedStories,
-        appIsLocal
+        savedStories
     } = props;
     
     return (
@@ -44,7 +43,6 @@ const Body = props => {
                 handleRemoveStoryError={handleRemoveStoryError}
                 showSavedStories={showSavedStories}
                 savedStories={savedStories}
-                appIsLocal={appIsLocal}
             />
         </div>
     );

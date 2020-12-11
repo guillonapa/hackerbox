@@ -25,8 +25,7 @@ const Results = props => {
         handleDeleteArticle,
         handleRemoveStoryError,
         showSavedStories,
-        savedStories,
-        appIsLocal
+        savedStories
     } = props;
 
     const deleteArticle = (name, description, link, imageUrl, source) => {
@@ -42,7 +41,7 @@ const Results = props => {
     const menu = (name, description, link, imageUrl, source) => (
         <Menu>
             <MenuItem icon="link" text="Open..." onClick={handleOpenArticle(link)} />
-            {!showSavedStories && appIsLocal ?
+            {!showSavedStories ?
                 <div>
                     <MenuDivider />
                     <MenuItem

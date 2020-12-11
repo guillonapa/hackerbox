@@ -93,9 +93,7 @@ class App extends React.Component {
             savedStories,
             loggedIn,
             logInDiv,
-            logOutDiv,
-            appIsLocal,
-            buildDate
+            logOutDiv
         } = this.state;
 
         return (
@@ -108,7 +106,6 @@ class App extends React.Component {
                     makeNewsApiCall={this.makeNewsApiCall}
                     handleCurrentlySelectedItem={this.handleCurrentlySelectedItem}
                     handleOpenSavedStories={this.handleOpenSavedStories.bind(this)}
-                    appIsLocal={appIsLocal}
                 />
 
                 {/* The Main Area of the Application */}
@@ -128,7 +125,6 @@ class App extends React.Component {
                     handleRemoveStoryError={this.handleRemoveStoryError}
                     showSavedStories={showSavedStories}
                     savedStories={savedStories}
-                    appIsLocal={appIsLocal}
                 />
 
                 {/* The Footer */}
@@ -147,23 +143,20 @@ class App extends React.Component {
                 </Dialog>
 
                 {/* The Login/Signup Drawer (If Necessary) */}
-                {appIsLocal ?
-                    <HackerBoxDrawer
-                        handleDrawerClose={this.handleDrawerClose}
-                        handleLockClick={this.handleLockClick}
-                        isDrawerOpen={isDrawerOpen}
-                        showPassword={showPassword}
-                        theme={theme}
-                        selectedTab={selectedTab}
-                        handleChangeTab={this.handleChangeTab}
-                        handleLogInClick={this.handleLogInClick}
-                        handleLogOutClick={this.handleLogOutClick}
-                        loggedIn={loggedIn}
-                        logInDiv={logInDiv}
-                        logOutDiv={logOutDiv}
-                        buildDate={buildDate}
-                    />
-                    : ""}
+                <HackerBoxDrawer
+                    handleDrawerClose={this.handleDrawerClose}
+                    handleLockClick={this.handleLockClick}
+                    isDrawerOpen={isDrawerOpen}
+                    showPassword={showPassword}
+                    theme={theme}
+                    selectedTab={selectedTab}
+                    handleChangeTab={this.handleChangeTab}
+                    handleLogInClick={this.handleLogInClick}
+                    handleLogOutClick={this.handleLogOutClick}
+                    loggedIn={loggedIn}
+                    logInDiv={logInDiv}
+                    logOutDiv={logOutDiv}
+                />
             </div>
         );
     }

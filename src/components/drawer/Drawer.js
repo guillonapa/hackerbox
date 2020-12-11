@@ -1,6 +1,7 @@
 import { Button, Classes, Drawer, Intent, Tabs, Tab } from '@blueprintjs/core';
 import LogIn from './Login';
 import Register from './Register';
+import preval from 'preval.macro';
 
 const React = require('react');
 
@@ -16,8 +17,7 @@ const HackerBoxDrawer = props => {
         handleLogInClick,
         handleLogOutClick,
         logInDiv,
-        logOutDiv,
-        buildDate
+        logOutDiv
     } = props;
 
     const logOutDivStyle = `hb-log-in-button ${logOutDiv}`;
@@ -38,7 +38,7 @@ const HackerBoxDrawer = props => {
                 </div>
             </div>
             <div className={Classes.DRAWER_FOOTER}>
-                <i>v1.0.0 ({buildDate})</i>
+                v1.0.0 ({preval`module.exports = new Date().toISOString();`})
             </div>
         </Drawer>
     );

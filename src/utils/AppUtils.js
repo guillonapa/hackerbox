@@ -2,7 +2,6 @@ import Emoji from 'a11y-react-emoji';
 import axios from 'axios';
 
 const React = require('react');
-const BuildDate = require('./BuildDate');
 
 // axios instance to call on backend
 const axiosInstance = axios.create();
@@ -128,7 +127,6 @@ export function initialState() {
         }),
         source: '',
         country: 'us',
-        // pageSize: 30,
         theme: 'bp3-dark',
         listOfSources: [],
         isDialogOpen: false,
@@ -141,8 +139,6 @@ export function initialState() {
         savedStories: [],
         loggedIn: false,
         logInDiv: 'show-block',
-        logOutDiv: 'hide',
-        appIsLocal: true,
-        buildDate: BuildDate.buildDate()
+        logOutDiv: 'hide'
     };
 }

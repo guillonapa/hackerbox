@@ -8,8 +8,7 @@ const HackerBoxNavbar = props => {
         handleCurrentlySelectedItem,
         handleOpen,
         handleOpenSavedStories,
-        handleDrawerOpen,
-        appIsLocal
+        handleDrawerOpen
     } = props;
 
     return (
@@ -26,16 +25,14 @@ const HackerBoxNavbar = props => {
                         handleCurrentlySelectedItem(null);
                     }}
                 />
-                {appIsLocal ?
-                    <Button
-                        className="bp3-minimal"
-                        icon="bookmark"
-                        text="Saved Stories"
-                        onClick={() => {
-                            handleOpenSavedStories();
-                        }}
-                    />
-                    : ""}
+                <Button
+                    className="bp3-minimal"
+                    icon="bookmark"
+                    text="Saved Stories"
+                    onClick={() => {
+                        handleOpenSavedStories();
+                    }}
+                />
                 <Button
                     className="bp3-minimal"
                     icon="help"
@@ -45,15 +42,13 @@ const HackerBoxNavbar = props => {
                     }}
                 />
             </Navbar.Group>
-            {appIsLocal ?
-                <Navbar.Group align={Alignment.RIGHT}>
-                    <Button
-                        className="bp3-minimal"
-                        icon="menu"
-                        onClick={() => handleDrawerOpen()}
-                    />
-                </Navbar.Group>
-                : ""}
+            <Navbar.Group align={Alignment.RIGHT}>
+                <Button
+                    className="bp3-minimal"
+                    icon="menu"
+                    onClick={() => handleDrawerOpen()}
+                />
+            </Navbar.Group>
         </Navbar>
     );
 };

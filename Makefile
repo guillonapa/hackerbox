@@ -29,8 +29,6 @@ db-create:
 
 # starts the backend locally
 local-backend: 
-	@echo "$(ECHO_PREFIX) Creating '.build-date' file..."
-	npm run build-date
 	@echo "$(ECHO_PREFIX) Starting backend service..."
 	npm run start-localbox
 
