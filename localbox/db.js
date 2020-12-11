@@ -12,7 +12,7 @@ const env = process.env;
 
 // logger
 const logger = pino({ level: env.LOG_LEVEL || 'info' });
-const expressLogger = expressPino({ logger });
+const expressLogger = expressPino({ logger, autoLogging: { ignorePaths: ['/log', '/debug'] } });
 
 // get the database url to connect to
 const connectionString = !env.DATABASE_URL ? `postgresql://${env.USER}@localhost:5432/${env.DB_NAME}` : env.DATABASE_URL;
@@ -129,6 +129,21 @@ app.post('/save', async (req, res) => {
 
         // add event to events table
         await query('INSERT INTO stories (title, description, url, imageUrl, source) VALUES ($1, $2, $3, $4, $5)', [title, description, url, imageUrl, source]);
+        // return the key of the event
+        res.send('200');
+    } catch (err) {
+        logger.info(err)
+        res.send('400');
+    }
+});
+
+app.post('/remove', async (req, res) => {
+    try {
+        logger.info(`Remove request body: ${JSON.stringify(req.body)}`);
+        const { title, description, url, imageUrl, source } = req.body;
+
+        // add event to events table
+        await query(`DELETE FROM stories WHERE url='${url}' AND imageUrl='${imageUrl}' AND source='${source}'`);
         // return the key of the event
         res.send('200');
     } catch (err) {

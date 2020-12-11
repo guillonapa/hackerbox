@@ -16,7 +16,8 @@ const HackerBoxDrawer = props => {
         handleLogInClick,
         handleLogOutClick,
         logInDiv,
-        logOutDiv
+        logOutDiv,
+        buildDate
     } = props;
 
     const logOutDivStyle = `hb-log-in-button ${logOutDiv}`;
@@ -37,7 +38,7 @@ const HackerBoxDrawer = props => {
                 </div>
             </div>
             <div className={Classes.DRAWER_FOOTER}>
-                &copy; Guillermo Narvaez (2017-2020)
+                <i>v1.0.0 ({buildDate})</i>
             </div>
         </Drawer>
     );

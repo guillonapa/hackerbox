@@ -10,11 +10,14 @@ const Body = props => {
         makeNewsApiCall,
         listOfSources,
         includeImages,
+        handleOpenSavedStories,
         currentlySelectedItem,
         handleIncludeImages,
         handleCurrentlySelectedItem,
         handleOpenArticle,
         handleSaveArticle,
+        handleDeleteArticle,
+        handleRemoveStoryError,
         showSavedStories,
         savedStories,
         appIsLocal
@@ -34,8 +37,11 @@ const Body = props => {
                 skeleton={skeleton}
                 articles={articles}
                 includeImages={includeImages}
+                handleOpenSavedStories={handleOpenSavedStories}
                 handleOpenArticle={handleOpenArticle}
                 handleSaveArticle={handleSaveArticle}
+                handleDeleteArticle={handleDeleteArticle}
+                handleRemoveStoryError={handleRemoveStoryError}
                 showSavedStories={showSavedStories}
                 savedStories={savedStories}
                 appIsLocal={appIsLocal}

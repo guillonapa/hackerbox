@@ -28,6 +28,7 @@
     "start": "concurrently \"node localbox/setup && node localbox/endpoint\" \"react-scripts start\"",
     "start-localbox": "nodemon -r dotenv/config localbox/db.js | pino-pretty",
     "start-frontend": "react-scripts start",
+    "build-date": "sh ./localbox/build-date-generator.sh",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

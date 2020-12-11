@@ -2,6 +2,7 @@ import Emoji from 'a11y-react-emoji';
 import axios from 'axios';
 
 const React = require('react');
+const BuildDate = require('./BuildDate');
 
 // axios instance to call on backend
 const axiosInstance = axios.create();
@@ -69,6 +70,28 @@ export function handleSaveArticle(title, description, url, imageUrl, source) {
     };
 };
 
+export function handleDeleteArticle(title, description, url, imageUrl, source) {
+    return async () => {
+        log(`Removing article: '${title}'`);
+        debug(`Article to remove: [title: ${title}, description: ${description}, url: ${url}, imageUrl: ${imageUrl}, source: ${source}]`);
+        const response = await axiosInstance.post(
+            `/remove`,
+            {   
+                title,
+                description,
+                url,
+                imageUrl,
+                source
+            }
+        );
+        debug(`Remove response: ${JSON.stringify(response)}`);
+        if (response.data === 200) {
+            return true;
+        }
+        return false;
+    };
+};
+
 export function handleOpenArticle(link) {
     return () => {
         window.open(link, '_blank');
@@ -83,7 +106,7 @@ export function helpMessage() {
                 the content. Hackerbox is a place where you can find and read articles from a myriad of sources, or save them for later reads. Enjoy!
             </p>
             <p>
-                Try Hackerbox with your first <Emoji symbol="☕" /> in the morning.
+                Try Hackerbox with your first <Emoji symbol="☕" /> &nbsp;in the morning.
             </p>
         </div>
     );
@@ -119,6 +142,7 @@ export function initialState() {
         loggedIn: false,
         logInDiv: 'show-block',
         logOutDiv: 'hide',
-        appIsLocal: true
+        appIsLocal: true,
+        buildDate: BuildDate.buildDate()
     };
 }

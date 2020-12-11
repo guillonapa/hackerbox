@@ -50,6 +50,10 @@ class App extends React.Component {
 
     // handles saving an article
     handleSaveArticle = (title, description, url, imageUrl, source) => Utils.handleSaveArticle(title, description, url, imageUrl, source);
+    // handles removing an article from saved ones
+    handleDeleteArticle = (title, description, url, imageUrl, source) => Utils.handleDeleteArticle(title, description, url, imageUrl, source);
+    // handles error while removing article
+    handleRemoveStoryError = (title) => console.log("Error removing story:", title);
     // handle opening the help dialog
     handleOpen = () => this.setState({ isDialogOpen: true });
     // handle closing the help dialog
@@ -90,7 +94,8 @@ class App extends React.Component {
             loggedIn,
             logInDiv,
             logOutDiv,
-            appIsLocal
+            appIsLocal,
+            buildDate
         } = this.state;
 
         return (
@@ -113,11 +118,14 @@ class App extends React.Component {
                     makeNewsApiCall={this.makeNewsApiCall}
                     listOfSources={listOfSources}
                     includeImages={includeImages}
+                    handleOpenSavedStories={this.handleOpenSavedStories.bind(this)}
                     currentlySelectedItem={currentlySelectedItem}
                     handleIncludeImages={this.handleIncludeImages}
                     handleCurrentlySelectedItem={this.handleCurrentlySelectedItem}
                     handleOpenArticle={this.handleOpenArticle}
                     handleSaveArticle={this.handleSaveArticle}
+                    handleDeleteArticle={this.handleDeleteArticle}
+                    handleRemoveStoryError={this.handleRemoveStoryError}
                     showSavedStories={showSavedStories}
                     savedStories={savedStories}
                     appIsLocal={appIsLocal}
@@ -153,6 +161,7 @@ class App extends React.Component {
                         loggedIn={loggedIn}
                         logInDiv={logInDiv}
                         logOutDiv={logOutDiv}
+                        buildDate={buildDate}
                     />
                     : ""}
             </div>

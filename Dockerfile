@@ -9,6 +9,9 @@ COPY . .
 # install all dependencies
 RUN npm install
 
+# create .build-date file with current time
+RUN npm run build-date
+
 # run the react build
 RUN npm run build
 
