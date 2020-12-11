@@ -37,7 +37,7 @@ const HackerBoxDrawer = props => {
                     </Tabs>
                 </div>
             </div>
-            <div className={Classes.DRAWER_FOOTER}>
+            <div className={Classes.DRAWER_FOOTER} style={{ color: Colors.GRAY3 }}>
                 v1.0.0 ({preval`module.exports = new Date().toISOString();`})
             </div>
         </Drawer>
