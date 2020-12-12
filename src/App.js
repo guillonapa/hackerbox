@@ -135,7 +135,7 @@ class App extends React.Component {
                     isOpen={isDialogOpen}
                     className={theme}
                     onClose={this.handleClose}
-                    title="Welcome to HackerBox"
+                    title="Welcome to Hackerbox"
                 >
                     <div className={Classes.DIALOG_BODY}>
                         {Utils.helpMessage()}
