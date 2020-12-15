@@ -1,4 +1,4 @@
-import { Colors, Dialog, Classes } from '@blueprintjs/core';
+import { Colors, Dialog, Classes, FocusStyleManager } from '@blueprintjs/core';
 
 import Body from './components/Body';
 import Footer from './components/Footer';
@@ -7,6 +7,8 @@ import HackerBoxDrawer from './components/drawer/Drawer';
 
 const Utils = require('./utils/AppUtils');
 const React = require('react');
+
+FocusStyleManager.onlyShowFocusOnTabs();
 
 class App extends React.Component {
     constructor(props) {
