@@ -5,6 +5,7 @@ import preval from 'preval.macro';
 
 const React = require('react');
 
+
 const HackerBoxDrawer = props => {
     const {
         theme,
@@ -37,8 +38,11 @@ const HackerBoxDrawer = props => {
                     </Tabs>
                 </div>
             </div>
-            <div className={Classes.DRAWER_FOOTER} style={{ color: Colors.GRAY3 }}>
-                v1.0.0 ({preval`module.exports = new Date().toISOString();`})
+            <div className={Classes.DRAWER_FOOTER} style={{ color: Colors.GRAY3, textAlign: 'right' }}>
+                1.0.0 | {preval`
+const date = new Date();
+module.exports = date.getUTCFullYear() + '-' + (date.getUTCMonth() + 1) + '-' + date.getUTCDate() + ' ' + date.getUTCHours() + ':' + date.getUTCMinutes() + ':' + date.getUTCSeconds() + ' UTC';
+`}
             </div>
         </Drawer>
     );
