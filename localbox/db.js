@@ -15,7 +15,7 @@ const logger = pino({ level: env.LOG_LEVEL || 'info' });
 const expressLogger = expressPino({ logger, autoLogging: { ignorePaths: ['/log', '/debug'] } });
 
 // get the database url to connect to
-const connectionString = !env.DATABASE_URL ? `postgresql://${env.USER}@localhost:5432/${env.DB_NAME}` : env.DATABASE_URL;
+const connectionString = !env.DATABASE_URL ? `postgresql://postgres:postgres@localhost:5432/${env.DB_NAME}` : env.DATABASE_URL;
 logger.info(`Database URL: ${connectionString}`);
 
 // get ssl configuration
@@ -140,7 +140,7 @@ app.post('/save', async (req, res) => {
 app.post('/remove', async (req, res) => {
     try {
         logger.info(`Remove request body: ${JSON.stringify(req.body)}`);
-        const { title, description, url, imageUrl, source } = req.body;
+        const { url, imageUrl, source } = req.body;
 
         // add event to events table
         await query(`DELETE FROM stories WHERE url='${url}' AND imageUrl='${imageUrl}' AND source='${source}'`);
