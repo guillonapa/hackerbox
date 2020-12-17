@@ -28,14 +28,14 @@ db-create:
 	psql postgres < localbox/schema.sql
 
 # starts the backend locally
-local-backend: 
+backend: 
 	@echo "$(ECHO_PREFIX) Starting backend service..."
-	npm run start-localbox
+	npm run backend
 
 # starts the frontend locally
-local-frontend:
+frontend:
 	@echo "$(ECHO_PREFIX) Starting frontend service..."
-	npm run start-frontend
+	npm run frontend
 
 # run app in local container
 docker-start:

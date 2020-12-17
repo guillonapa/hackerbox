@@ -2,14 +2,6 @@
 
 ![Node.js CI](https://github.com/guillonapa/hackerbox/workflows/Node.js%20CI/badge.svg?branch=minimal-online)
 
-Hackerbox is a web application that uses the NewsApi API to browse articles from thousands of sources. 
+Hackerbox is a platform where your news reading happens. There's a lot of amazing blogs and sites out there, but it's hard to keep up with all the content. Hackerbox is a place where you can find and read articles from a myriad of sources (through NewsApi), or save them for later reads.
 
-The application can be either deployed to a server or run locally. When run locally, you can save articles to personalized lists for further reference.
-
-## Online Version
-
-You can [browse Hackerbox online](https://hackerbox.herokuapp.com/), but to use all the features you will need to run it locally as described below.
-
-## Use Hackerbox Locally
-
-TBD.
+![hackerbox](lib/hackerbox.png)
